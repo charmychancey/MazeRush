@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8111129526335802972, guid: a90ba7ec0d6112e41ab74de9cef8474b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.4
+      value: 48.9
       objectReference: {fileID: 0}
     - target: {fileID: 8111129526335802972, guid: a90ba7ec0d6112e41ab74de9cef8474b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -602,6 +602,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &2060814188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3012305965490466794, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+  m_PrefabInstance: {fileID: 3012305964772419718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2060814189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060814188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ebaf903e60d9b4f82791132e47b188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3012305964772419718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +677,18 @@ PrefabInstance:
     - target: {fileID: 3012305965490466792, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012305965490466795, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012305965490466795, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012305965490466795, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+      propertyPath: m_Intensity
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}

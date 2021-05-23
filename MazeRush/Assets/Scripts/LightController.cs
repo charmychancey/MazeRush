@@ -4,18 +4,42 @@ using UnityEngine;
 
 namespace MazeRush
 {
-    public class LightController : ScriptableObject
+    public class LightController : MonoBehaviour
     {
-        // Start is called before the first frame update
+        [SerializeField] private float MaxRange = 60.0f;
+        [SerializeField] private float MinRange = 15.0f;
+        private float Range;
+        private Light Light;
         void Start()
         {
-            
+            this.Light = this.gameObject.GetComponent<Light>();
+            this.Range = this.Light.range;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            
+            this.Light.range = this.Range;
+        }
+
+        public float GetRange()
+        {
+            return this.Range;
+        }
+
+        public void SetRange(float range)
+        {
+            if (range > this.MaxRange)
+            {
+                this.Range = this.MaxRange;
+            }
+            else if (range < this.MinRange)
+            {
+                this.Range = this.MinRange;
+            }
+            else
+            {
+                this.Range = range;
+            }
         }
     }
 }
