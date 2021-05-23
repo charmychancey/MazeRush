@@ -3,29 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using MazeRush;
 
-public class PlayerController : MonoBehaviour
+namespace MazeRush
 {
-    [SerializeField] GameObject Phone;
-
-    private IPlayerCommand MovePlayer;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        this.MovePlayer = ScriptableObject.CreateInstance<MovePlayer>();
-    }
+        [SerializeField] GameObject Phone;
 
-    // Update is called once per frame
-    void Update()
-    {
-        DoPlayerMovement();
-    }
+        private IPlayerCommand MovePlayer;
+        private IPlayerCommand Fire1;
+        private LightController Flashlight;
 
-    private void DoPlayerMovement()
-    {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        // Start is called before the first frame update
+        void Start()
         {
-            this.MovePlayer.Execute(this.gameObject);
+            this.MovePlayer = ScriptableObject.CreateInstance<MovePlayer>();
+            this.Fire1 = ScriptableObject.CreateInstance<UsePrimaryItemA>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            DoPlayerMovement();
+        }
+
+        private void DoPlayerMovement()
+        {
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                this.MovePlayer.Execute(this.gameObject);
+            }
+        }
+
+        private void DoUsePrimaryItemA()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                this.Fire1.Execute(this.gameObject);
+            }
         }
     }
 }
