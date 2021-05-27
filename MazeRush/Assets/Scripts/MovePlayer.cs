@@ -13,10 +13,7 @@ namespace MazeRush
 
             if (rigidBody != null)
             {
-                rigidBody.velocity =
-                new Vector3(Input.GetAxis("Horizontal") * this.Speed,
-                            Input.GetAxis("Vertical") * this.Speed,
-                            0.0f);
+                rigidBody.AddForce(Input.GetAxisRaw("Horizontal") * this.Speed, Input.GetAxisRaw("Vertical") * this.Speed, 0, ForceMode.Impulse);
             }
         }
     }

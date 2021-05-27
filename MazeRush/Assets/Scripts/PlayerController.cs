@@ -22,8 +22,11 @@ namespace MazeRush
         // Update is called once per frame
         void Update()
         {
-            DoPlayerMovement();
             DoUseFlashlight();
+        }
+
+        private void FixedUpdate() {
+            DoPlayerMovement();
         }
 
         private void DoPlayerMovement()
