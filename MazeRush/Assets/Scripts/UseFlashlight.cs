@@ -8,7 +8,7 @@ namespace MazeRush
     {
         private float GainRate = 10.0f;
         private float LossRate = 20.0f;
-        private LightController Flashlight;
+        public LightController Flashlight;
         public void Execute(GameObject player)
         {
             this.Flashlight =
