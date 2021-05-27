@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Spot angle determines where the cookie texture gets cut off, pick a large enough angle based on the distance of the spotlight and keep it constant.
+// We can still use range to determine the range of the light.
+
 namespace MazeRush
 {
     public class LightController : MonoBehaviour
@@ -40,6 +43,11 @@ namespace MazeRush
             {
                 this.Range = range;
             }
+        }
+
+        private void ChangeDirection()
+        {
+            
         }
     }
 }
