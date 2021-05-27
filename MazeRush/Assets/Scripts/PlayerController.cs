@@ -11,12 +11,18 @@ namespace MazeRush
 
         private MovePlayer MovePlayer;
         private UseFlashlight Fire1;
+        public int maxHealth = 100;
+        public int currentHealth;
+        public HealthBar healthbar;
 
         // Start is called before the first frame update
         void Start()
         {
             this.MovePlayer = ScriptableObject.CreateInstance<MovePlayer>();
             this.Fire1 = ScriptableObject.CreateInstance<UseFlashlight>();
+            currentHealth=maxHealth;
+            healthbar.SetMaxHealth(maxHealth);
+            
         }
 
         // Update is called once per frame
@@ -24,6 +30,15 @@ namespace MazeRush
         {
             DoPlayerMovement();
             DoUseFlashlight();
+            if (Input.GetButton("Fire1"))
+            {
+                TakeDamage(1);
+            }
+        }
+        void TakeDamage(int damage)
+        {
+            currentHealth -= damage ; 
+            healthbar.SetHealth(currentHealth);
         }
 
         private void DoPlayerMovement()
