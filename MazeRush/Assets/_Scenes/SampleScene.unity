@@ -974,6 +974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3012305964887229305, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+      propertyPath: m_Drag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3012305964887229304, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: healthbar
       value: 
@@ -1022,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3012305964887229308, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3012305964887229311, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1040,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3012305965396328251, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.5
+      value: -25.
       objectReference: {fileID: 0}
     - target: {fileID: 3012305965396328251, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: m_LocalRotation.x
