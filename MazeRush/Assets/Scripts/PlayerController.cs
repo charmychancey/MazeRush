@@ -30,7 +30,6 @@ namespace MazeRush
         // Update is called once per frame
         void Update()
         {
-            DoPlayerMovement();
             DoUseFlashlight();
             if (Input.GetButton("Fire1"))
             {
@@ -41,6 +40,10 @@ namespace MazeRush
         {
             currentHealth -= damage ; 
             healthbar.SetHealth(currentHealth);
+        }
+
+        private void FixedUpdate() {
+            DoPlayerMovement();
         }
 
         private void DoPlayerMovement()
