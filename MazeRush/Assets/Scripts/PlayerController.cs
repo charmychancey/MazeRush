@@ -15,7 +15,9 @@ namespace MazeRush
         public int currentHealth;
         public HealthBar healthbar;
         //public AudioSource audiosource;
-        //public AudioSource audiosourcelight;
+        public AudioSource audiosourcelight;
+        [SerializeField] public Animator Animator;
+
 
         // Start is called before the first frame update
         void Start()
@@ -24,12 +26,14 @@ namespace MazeRush
             this.Fire1 = ScriptableObject.CreateInstance<UseFlashlight>();
             currentHealth=maxHealth;
             healthbar.SetMaxHealth(maxHealth);
-            
+            this.Animator = this.gameObject.GetComponentInChildren<Animator>();
+            Debug.Log(this.Animator);
         }
 
         // Update is called once per frame
         void Update()
         {
+            playaudio();
             DoUseFlashlight();
             if (Input.GetButton("Fire1"))
             {
@@ -46,13 +50,34 @@ namespace MazeRush
             DoPlayerMovement();
         }
 
+        private void playaudio()
+        {
+            if (Input.GetButtonDown("Fire1"))
+                {
+                    audiosourcelight.Play();
+                    //audiosource.Play();
+
+                } 
+            if (Input.GetButtonUp("Fire1"))
+            {
+                audiosourcelight.Stop();
+            }
+        
+            
+        }
+
         private void DoPlayerMovement()
         {
             if (Input.GetAxis("Horizontal") != 0 ||
                 Input.GetAxis("Vertical") != 0)
             {
                 this.MovePlayer.Execute(this.gameObject);
-               //audiosource.Play();
+                this.Animator.SetBool("IsWalking", true) ;
+                
+            }
+            else
+            {
+                this.Animator.SetBool("IsWalking",false);
             }
         }
 
@@ -62,7 +87,7 @@ namespace MazeRush
             {
 
                 this.Fire1.Execute(this.gameObject);
-                //audiosourcelight.Play();
+                
                 
             }
             else
