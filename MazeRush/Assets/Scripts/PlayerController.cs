@@ -14,8 +14,8 @@ namespace MazeRush
         public int maxHealth = 100;
         public int currentHealth;
         public HealthBar healthbar;
-        public AudioSource audiosource;
-        public AudioSource audiosourcelight;
+        //public AudioSource audiosource;
+        //public AudioSource audiosourcelight;
 
         // Start is called before the first frame update
         void Start()
@@ -52,7 +52,7 @@ namespace MazeRush
                 Input.GetAxis("Vertical") != 0)
             {
                 this.MovePlayer.Execute(this.gameObject);
-                audiosource.Play();
+               //audiosource.Play();
             }
         }
 
@@ -60,8 +60,9 @@ namespace MazeRush
         {
             if (Input.GetButton("Fire1"))
             {
-                audiosourcelight.Play();
+
                 this.Fire1.Execute(this.gameObject);
+                //audiosourcelight.Play();
                 
             }
             else
