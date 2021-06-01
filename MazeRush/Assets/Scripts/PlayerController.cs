@@ -8,6 +8,7 @@ namespace MazeRush
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] GameObject Phone;
+        [SerializeField] public Animator Animator;
 
         private MovePlayer MovePlayer;
         private UseFlashlight Fire1;
@@ -16,7 +17,6 @@ namespace MazeRush
         public HealthBar healthbar;
         //public AudioSource audiosource;
         public AudioSource audiosourcelight;
-        [SerializeField] public Animator Animator;
 
 
         // Start is called before the first frame update
@@ -62,8 +62,6 @@ namespace MazeRush
             {
                 audiosourcelight.Stop();
             }
-        
-            
         }
 
         private void DoPlayerMovement()
@@ -73,7 +71,6 @@ namespace MazeRush
             {
                 this.MovePlayer.Execute(this.gameObject);
                 this.Animator.SetBool("IsWalking", true) ;
-                
             }
             else
             {
@@ -85,10 +82,7 @@ namespace MazeRush
         {
             if (Input.GetButton("Fire1"))
             {
-
                 this.Fire1.Execute(this.gameObject);
-                
-                
             }
             else
             {

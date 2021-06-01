@@ -10,6 +10,8 @@ namespace MazeRush
     // https://www.youtube.com/watch?v=_nRzoTzeyxU&t=613s
     public class ExpositionController : MonoBehaviour
     {
+        [SerializeField] public Animator ExpositionAnimator;
+
         private Queue<string> Sentences;
 
         public Text ExpositionText;
@@ -35,6 +37,12 @@ namespace MazeRush
 
         public void DisplayNextSentence()
         {
+            // Handles animations.
+            this.ExpositionAnimator.SetBool("IsOpen", true);
+            this.ExpositionAnimator.SetTrigger("OnButtonClick");
+            //this.ExpositionAnimator.ResetTrigger("OnButtonClick");
+
+            // Handles text updates.
             Debug.Log("'Next' button clicked...");
             if (this.Sentences.Count == 0)
             {

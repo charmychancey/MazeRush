@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14009c00e1613ae4aa1f5b11c43d6707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExpositionAnimator: {fileID: 420177164}
   ExpositionText: {fileID: 116680538}
   ExpositionTrigger: {fileID: 620170227}
 --- !u!4 &620170229
