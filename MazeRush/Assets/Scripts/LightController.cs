@@ -18,6 +18,7 @@ namespace MazeRush
 
         void Update()
         {
+            this.AimAtMouse();
             this.Light.range = this.Range;
         }
 
@@ -41,5 +42,21 @@ namespace MazeRush
                 this.Range = range;
             }
         }
+
+        void AimAtMouse()
+        {
+            // Point light in the direction of the mouse
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Vector3.Distance(Camera.main.transform.position, gameObject.transform.position);
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Vector2 mouseDirection = ((Vector2)mousePos - (Vector2)this.gameObject.transform.position).normalized;
+            float mouseAngle = -Vector2.SignedAngle(Vector2.right, mouseDirection);
+            this.gameObject.transform.eulerAngles = new Vector3(mouseAngle, 90, 0);
+
+            // Rotate the flashlight's offset from the player
+            Quaternion positionRotation = Quaternion.AngleAxis(mouseAngle, Vector3.back);
+            var positionOffset = positionRotation * Vector3.right;
+            this.gameObject.transform.localPosition = -positionOffset;
+        }
     }
-}
+}   

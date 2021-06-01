@@ -14,6 +14,12 @@ namespace MazeRush
         private UseFlashlight Fire1;
         private IBattery Battery;
         [SerializeField] public Text BatteryLevelDisplay;
+        public int maxHealth = 100;
+        public int currentHealth;
+        public HealthBar healthbar;
+        //public AudioSource audiosource;
+        public AudioSource audiosourcelight;
+        [SerializeField] public Animator Animator;
 
         // Start is called before the first frame update
         void Start()
@@ -21,15 +27,48 @@ namespace MazeRush
             this.MovePlayer = ScriptableObject.CreateInstance<MovePlayer>();
             this.Fire1 = ScriptableObject.CreateInstance<UseFlashlight>();
             this.Battery = new DefaultBattery();
+            currentHealth=maxHealth;
+            healthbar.SetMaxHealth(maxHealth);
+            this.Animator = this.gameObject.GetComponentInChildren<Animator>();
+            Debug.Log(this.Animator);
         }
 
         // Update is called once per frame
         void Update()
         {
-            DoPlayerMovement();
+            playaudio();
             DoUseFlashlight();
             DoDrainBattery();
             this.BatteryLevelDisplay.text = this.Battery.GetCharge().ToString("F2");
+            // if (Input.GetButton("Fire1"))
+            // {
+            //     TakeDamage(1);
+            // }
+            TakeDamage();
+        }
+
+        void TakeDamage()
+        {
+            // currentHealth -= damage;
+            healthbar.SetHealth((int)this.Battery.GetCharge());
+        }
+
+        private void FixedUpdate() {
+            DoPlayerMovement();
+        }
+
+        private void playaudio()
+        {
+            if (Input.GetButtonDown("Fire1"))
+                {
+                    audiosourcelight.Play();
+                    //audiosource.Play();
+
+                }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                audiosourcelight.Stop();
+            }
         }
 
         private void DoPlayerMovement()
@@ -38,6 +77,12 @@ namespace MazeRush
                 Input.GetAxis("Vertical") != 0)
             {
                 this.MovePlayer.Execute(this.gameObject);
+                this.Animator.SetBool("IsWalking", true) ;
+
+            }
+            else
+            {
+                this.Animator.SetBool("IsWalking",false);
             }
         }
 
