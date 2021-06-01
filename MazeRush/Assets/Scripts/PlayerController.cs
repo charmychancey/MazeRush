@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using MazeRush;
 
 namespace MazeRush
@@ -12,18 +13,20 @@ namespace MazeRush
 
         private MovePlayer MovePlayer;
         private UseFlashlight Fire1;
+        private IBattery Battery;
+        [SerializeField] public Text BatteryLevelDisplay;
         public int maxHealth = 100;
         public int currentHealth;
         public HealthBar healthbar;
         //public AudioSource audiosource;
         public AudioSource audiosourcelight;
 
-
         // Start is called before the first frame update
         void Start()
         {
             this.MovePlayer = ScriptableObject.CreateInstance<MovePlayer>();
             this.Fire1 = ScriptableObject.CreateInstance<UseFlashlight>();
+            this.Battery = new DefaultBattery();
             currentHealth=maxHealth;
             healthbar.SetMaxHealth(maxHealth);
             this.Animator = this.gameObject.GetComponentInChildren<Animator>();
@@ -35,15 +38,19 @@ namespace MazeRush
         {
             playaudio();
             DoUseFlashlight();
-            if (Input.GetButton("Fire1"))
-            {
-                TakeDamage(1);
-            }
+            DoDrainBattery();
+            this.BatteryLevelDisplay.text = this.Battery.GetCharge().ToString("F2");
+            // if (Input.GetButton("Fire1"))
+            // {
+            //     TakeDamage(1);
+            // }
+            TakeDamage();
         }
-        void TakeDamage(int damage)
+
+        void TakeDamage()
         {
-            currentHealth -= damage ; 
-            healthbar.SetHealth(currentHealth);
+            // currentHealth -= damage;
+            healthbar.SetHealth((int)this.Battery.GetCharge());
         }
 
         private void FixedUpdate() {
@@ -57,7 +64,7 @@ namespace MazeRush
                     audiosourcelight.Play();
                     //audiosource.Play();
 
-                } 
+                }
             if (Input.GetButtonUp("Fire1"))
             {
                 audiosourcelight.Stop();
@@ -78,6 +85,15 @@ namespace MazeRush
             }
         }
 
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.name == "Portable Battery")
+            {
+                this.Battery.SetBattery(this.Battery.GetCharge() + 10f);
+                Destroy(collision.gameObject);
+            }
+        }
+
         private void DoUseFlashlight()
         {
             if (Input.GetButton("Fire1"))
@@ -88,6 +104,11 @@ namespace MazeRush
             {
                 this.Fire1.Standby(this.gameObject);
             }
+        }
+
+        private void DoDrainBattery()
+        {
+            this.Battery.DrainBattery(this.Fire1.Flashlight.GetRange());
         }
     }
 }
