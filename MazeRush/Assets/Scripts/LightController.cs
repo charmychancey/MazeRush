@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace MazeRush
 {
+    // Flashlight controller for main player object.
     public class LightController : MonoBehaviour
     {
         [SerializeField] private float MaxRange = 60.0f;
@@ -27,6 +28,8 @@ namespace MazeRush
             return this.Range;
         }
 
+        // Sets the range of flashlight,
+        // while controlling for max and min ranges.
         public void SetRange(float range)
         {
             if (range > this.MaxRange)
@@ -45,18 +48,15 @@ namespace MazeRush
 
         void AimAtMouse()
         {
-            // Point light in the direction of the mouse
+            // Points light in the direction of the mouse.
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Vector3.Distance(Camera.main.transform.position, gameObject.transform.position);
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             Vector2 mouseDirection = ((Vector2)mousePos - (Vector2)this.gameObject.transform.position).normalized;
             float mouseAngle = -Vector2.SignedAngle(Vector2.right, mouseDirection);
+            // Rotates light across the x axis.
+            // Sets y to 90 to offset the plane dimension.
             this.gameObject.transform.eulerAngles = new Vector3(mouseAngle, 90, 0);
-
-            // Rotate the flashlight's offset from the player
-            Quaternion positionRotation = Quaternion.AngleAxis(mouseAngle, Vector3.back);
-            var positionOffset = positionRotation * Vector3.right;
-            this.gameObject.transform.localPosition = -positionOffset;
         }
     }
-}   
+}

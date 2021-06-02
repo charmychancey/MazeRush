@@ -129,11 +129,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phone: {fileID: 0}
+  Animator: {fileID: 0}
+  BatteryLevelDisplay: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   healthbar: {fileID: 0}
   audiosourcelight: {fileID: 0}
-  Animator: {fileID: 0}
 --- !u!1 &3012305965396328250
 GameObject:
   m_ObjectHideFlags: 0
