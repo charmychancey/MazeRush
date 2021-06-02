@@ -426,11 +426,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exposition:
     Sentences:
-    - 0
-    - 1
-    - 2
-    - 3
-    - 4
+    - '*Alert*
+
+      You are a screen-addicted student who lost track of time "studying"
+      late into the night, and are now stuck in the maze known as Shields Library...'
+    - Your phone will soon run out of battery, and you need to find a functioning
+      outlet before your phone dies!
+    - ...Eduroam is down again and you can't seem to get a good cell signal, so you
+      won't be able to contact the outside world for help.
+    - The library lights have gone out already, so the only source of light you have
+      left is your phone's flashlight.
+    - Your phone's flashlight can be made brighter to increase your range of sight.
+    - You'll need to manage your power very carefully if you want to find that outlet...
+    - If your phone's battery dies before you find the outlet, you will be stuck
+      in the library's labyrinth without any source of light to navigate, thus losing
+      your mind.
+    - Good luck, brave soul!
 --- !u!114 &620170228
 MonoBehaviour:
   m_ObjectHideFlags: 0
