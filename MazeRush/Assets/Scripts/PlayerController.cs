@@ -39,17 +39,12 @@ namespace MazeRush
             playaudio();
             DoUseFlashlight();
             DoDrainBattery();
-            this.BatteryLevelDisplay.text = this.Battery.GetCharge().ToString("F2");
-            // if (Input.GetButton("Fire1"))
-            // {
-            //     TakeDamage(1);
-            // }
+            this.BatteryLevelDisplay.text = this.Battery.GetCharge().ToString("F0")+ "%";
             TakeDamage();
         }
 
         void TakeDamage()
         {
-            // currentHealth -= damage;
             healthbar.SetHealth((int)this.Battery.GetCharge());
         }
 
@@ -62,7 +57,6 @@ namespace MazeRush
             if (Input.GetButtonDown("Fire1"))
                 {
                     audiosourcelight.Play();
-                    //audiosource.Play();
 
                 }
             if (Input.GetButtonUp("Fire1"))
