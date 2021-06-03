@@ -10,11 +10,11 @@ namespace MazeRush
     {
         [SerializeField] GameObject Phone;
         [SerializeField] public Animator Animator;
+        [SerializeField] public Text BatteryLevelDisplay;
 
         private MovePlayer MovePlayer;
         private UseFlashlight Fire1;
         private IBattery Battery;
-        [SerializeField] public Text BatteryLevelDisplay;
         public int maxHealth = 100;
         public int currentHealth;
         public HealthBar healthbar;
@@ -36,6 +36,7 @@ namespace MazeRush
         // Update is called once per frame
         void Update()
         {
+            AimAtMouse();
             playaudio();
             DoUseFlashlight();
             DoDrainBattery();
@@ -79,6 +80,18 @@ namespace MazeRush
             }
         }
 
+        // Points player in the direction of the mouse.
+        void AimAtMouse()
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Vector3.Distance(Camera.main.transform.position, gameObject.transform.position);
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Vector2 mouseDirection = ((Vector2)mousePos - (Vector2)this.gameObject.transform.position).normalized;
+            float mouseAngle = Vector2.SignedAngle(Vector2.right, mouseDirection);
+            // Rotates player across the z axis.
+            this.gameObject.transform.eulerAngles = new Vector3(0, 0, mouseAngle);
+        }
+
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.name == "Portable Battery")
@@ -88,6 +101,8 @@ namespace MazeRush
             }
         }
 
+        // Increases range when fire1 held.
+        // Decreases range when not "activating" the flashlight.
         private void DoUseFlashlight()
         {
             if (Input.GetButton("Fire1"))
@@ -100,6 +115,7 @@ namespace MazeRush
             }
         }
 
+        // Battery drain varies based on flashlight usage.
         private void DoDrainBattery()
         {
             this.Battery.DrainBattery(this.Fire1.Flashlight.GetRange());

@@ -22,5 +22,5 @@ public class HealthBar : MonoBehaviour
     {
         slider.value=health;
         image.color= gradient.Evaluate(slider.normalizedValue);
-    } 
+    }
 }

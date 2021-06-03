@@ -43,7 +43,6 @@ namespace MazeRush
             //this.ExpositionAnimator.ResetTrigger("OnButtonClick");
 
             // Handles text updates.
-            Debug.Log("'Next' button clicked...");
             if (this.Sentences.Count == 0)
             {
                 EndExposition();
