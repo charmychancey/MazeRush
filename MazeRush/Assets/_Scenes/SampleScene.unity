@@ -961,7 +961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8c25be75c4dc44d855d6925bc17bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HallWidth: 5
+  MazeDimensions: {x: 29, y: 29}
+  HallWidth: 2
   HallHeight: 2
   WallPrefab: {fileID: 8593645843051534252, guid: be52a4eb07275ae4f94d62309505a910, type: 3}
 --- !u!1 &2060814188 stripped

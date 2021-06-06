@@ -1,9 +1,13 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: Get rid of binary matrix and only use MazeCell matrix
+
 public class MazeGenerationController : MonoBehaviour
 {
+    public Vector2Int MazeDimensions = new Vector2Int(3, 3);
     // Start is called before the first frame update
     public int HallWidth = 1;
     public int HallHeight = 1;
@@ -11,18 +15,77 @@ public class MazeGenerationController : MonoBehaviour
     GameObject plane;
     int[,] MazeData;
 
+    MazeCell[,] RecursiveBacktrackingMazeGeneration()
+    {
+        // Generate matrix of closed cells
+        var maze = new MazeCell[this.MazeDimensions.x, this.MazeDimensions.y];
+        for (int row = 0; row < this.MazeDimensions.x; row++)
+        {
+            for (int col = 0; col < this.MazeDimensions.y; col++)
+            {
+                maze[row, col] = new MazeCell(row, col);
+            }
+        }
+        // Stack of unfinished cells
+        var stack = new List<MazeCell>(); 
+        // Pick a random cell
+        stack.Add(maze[Random.Range(0, this.MazeDimensions.x), Random.Range(0, this.MazeDimensions.y)]);
+        stack.Last().Visited = true;
+        while(stack.Any())
+        {
+            // Get unvisited neighbors
+            var neighbors = stack.Last().GetUnvisitedNeighbors(maze);
+            if (neighbors.Any())
+            {
+                // Pick one at random
+                var nextCell = neighbors[Random.Range(0, neighbors.Count())];
+                // Open wall between cells
+                stack.Last().OpenWallTo(nextCell);
+                // Add cell to stack
+                stack.Add(nextCell);
+                // Mark the new cell as visited
+                nextCell.Visited = true;
+            }
+            else
+            {
+                stack.RemoveAt(stack.Count() - 1);
+            }
+        }
+        return maze;
+    }
+
     void GenerateRandomMaze()
     {
-        MazeData = new int[,]
+        // Generate maze with algorithm
+        var generatedMaze = this.RecursiveBacktrackingMazeGeneration();
+        // Result is a matrix of MazeCells
+        // convert matrix of MazeCells into binary matrix
+        MazeData = new int[2 * generatedMaze.GetLength(0) + 1, 2 * generatedMaze.GetLength(1) + 1];
+        for (int row = 0; row < generatedMaze.GetLength(0); row++)
         {
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 1, 1, 1, 1, 1, 0},
-            {0, 1, 0, 0, 0, 1, 0},
-            {0, 1, 0, 1, 1, 1, 0},
-            {0, 1, 0, 0, 0, 0, 0},
-            {0, 1, 1, 1, 0, 1, 0},
-            {0, 0, 0, 0, 0, 0, 0}
-        };
+            for (int col = 0; col < generatedMaze.GetLength(1); col++)
+            {
+                MazeData[1 + (2 * row), 1 + (2 * col)] = 1;
+                if (generatedMaze[row, col].Up)
+                {
+                    MazeData[(2 * row), 1 + (2 * col)] = 1;
+                }
+                if (generatedMaze[row, col].Left)
+                {
+                    MazeData[1 + (2 * row), (2 * col)] = 1;
+                }
+            }
+        }
+        // MazeData = new int[,]
+        // {
+        //     {0, 0, 0, 0, 0, 0, 0},
+        //     {0, 1, 1, 1, 1, 1, 0},
+        //     {0, 1, 0, 0, 0, 1, 0},
+        //     {0, 1, 0, 1, 1, 1, 0},
+        //     {0, 1, 0, 0, 0, 0, 0},
+        //     {0, 1, 1, 1, 0, 1, 0},
+        //     {0, 0, 0, 0, 0, 0, 0}
+        // };
     }
 
 
@@ -38,7 +101,6 @@ public class MazeGenerationController : MonoBehaviour
     {
         // Rescale plane to proper size
         // Plane is scaled as 10x10
-        // TODO: HallHeight == HallHeight == HallHeight. Get rid of the extra variables
         // TODO: Get rid of the scaling and just copy/paste walls with scale 1
         int cellRows = (MazeData.GetLength(0) - 1) / 2;
         int cellCols = (MazeData.GetLength(1) - 1) / 2;
