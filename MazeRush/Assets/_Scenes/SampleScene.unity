@@ -863,6 +863,7 @@ GameObject:
   - component: {fileID: 1594197333}
   - component: {fileID: 1594197332}
   - component: {fileID: 1594197331}
+  - component: {fileID: 1594197335}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -948,6 +949,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1594197335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594197330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8c25be75c4dc44d855d6925bc17bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HallWidth: 5
+  HallHeight: 2
+  WallPrefab: {fileID: 8593645843051534252, guid: be52a4eb07275ae4f94d62309505a910, type: 3}
 --- !u!1 &2060814188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3012305965490466794, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
@@ -974,14 +990,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3012305964887229305, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
-      propertyPath: m_Drag
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3012305964887229304, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 380728055}
+    - target: {fileID: 3012305964887229305, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
+      propertyPath: m_Drag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3012305964887229307, guid: 5c25e4fce8af86e419aa6f7ccc8034f9, type: 3}
       propertyPath: m_RootOrder
       value: 2
