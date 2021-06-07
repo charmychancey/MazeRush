@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefaultBattery : ScriptableObject, IBattery
 {
-    private float Charge = 20.0f;
+    private float Charge = 0.01f;
     private float DrainRate = 5e-8f;
     float IBattery.GetCharge()
     {
@@ -22,5 +22,6 @@ public class DefaultBattery : ScriptableObject, IBattery
     public void DrainBattery(float LightLevel)
     {
         this.Charge -= LightLevel * LightLevel * this.DrainRate;
+        Debug.Log(this.Charge);
     }
 }
