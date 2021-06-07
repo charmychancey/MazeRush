@@ -1270,7 +1270,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42752
+  m_Name: pb_Mesh46066
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2198,6 +2198,7 @@ GameObject:
   - component: {fileID: 1594197333}
   - component: {fileID: 1594197332}
   - component: {fileID: 1594197331}
+  - component: {fileID: 1594197335}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -2277,12 +2278,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594197330}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.91, y: -1.62, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1594197335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594197330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8c25be75c4dc44d855d6925bc17bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MazeDimensions: {x: 5, y: 5}
+  HallWidth: 2
+  HallHeight: 2
+  WallPrefab: {fileID: 8593645843051534252, guid: be52a4eb07275ae4f94d62309505a910, type: 3}
 --- !u!1 &1983901193
 GameObject:
   m_ObjectHideFlags: 0
