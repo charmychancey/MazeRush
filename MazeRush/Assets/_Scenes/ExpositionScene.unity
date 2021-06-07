@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 442588796}
   - component: {fileID: 442588795}
   - component: {fileID: 442588794}
+  - component: {fileID: 442588797}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -561,6 +562,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &442588797
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442588793}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ab63369db59adbf46b2761daeeebe63c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &612195687
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,25 +772,25 @@ MonoBehaviour:
     - "You\u2019ve been at the library \u201Cstudying\u201D for hours and hours.
       Too many hours and now you\u2019ve been locked inside the maze known as Shields
       Library... "
-    - "All the library lights are out already, so it looks like your only source
-      of light will have to be your phone\u2019s flashlight. "
-    - "You\u2019re on low battery and you need to find a functioning outlet before
-      your phone dies. It would seem like there should be more outlets around--it\u2019s
-      a library--but you can\u2019t see a single one."
-    - "Well damn\u2026 Eduroam is down (again) and you ran out of data watching your
-      show on Netflix instead of studying."
+    - All the library lights are out, so your only source of light is your phone's
+      flashlight.
+    - "Low on battery, you need to find a functioning outlet before your phone dies.
+      It would seem like there should be more outlets around--it\u2019s a library
+      after all."
+    - Eduroam is down (again) and you ran out of data watching shows on Netflix when
+      you were multi-tasking...
     - "Not to mention, you can\u2019t seem to get a good cell signal, so you won\u2019t
       be able to contact the outside world for help."
     - "You can use the brightness of your phone\u2019s flashlight to increase your
       range of sight. "
     - "Watch out though; using brighter light may help you see further but you\u2019ll
       do so at the expense of your battery. Manage it carefully."
-    - "If your phone dies before you can find an outlet, you\u2019ll be stuck here
-      in this dark and lonely labyrinth until some unsuspecting, heroic soul finally
-      discovers you in the morning. In other words: you lose.\n"
+    - "If your phone dies, you\u2019ll be stuck here in this dark and lonely labyrinth
+      until some unsuspecting, heroic soul finally discovers you in the morning.
+      In other words: you lose.\n"
     - 'Good luck, you brave soul. May your Aggie pride guide you. '
-    - 'Tip: If you look around enough, you might be able to find portable chargers
-      that some poor students lost. Those might help a bit. '
+    - 'Tip: Look around, you might find portable chargers that some poor students
+      lost. Those might help a bit :)'
 --- !u!114 &620170228
 MonoBehaviour:
   m_ObjectHideFlags: 0
