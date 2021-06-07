@@ -120,6 +120,12 @@ namespace MazeRush
                 this.Battery.SetBattery(this.Battery.GetCharge() + 10f);
                 Destroy(collision.gameObject);
             }
+
+            if (collision.gameObject.name == "Outlet")
+            {
+                Destroy(collision.gameObject);
+                SceneManager.LoadScene(4);
+            }
         }
 
         // Increases range when fire1 held.
@@ -144,12 +150,12 @@ namespace MazeRush
 
         private void playaudioendgame()
         {
-            if (this.Battery.GetCharge() <= 0.0f && this.GameOver == false) 
+            if (this.Battery.GetCharge() <= 0.0f && this.GameOver == false)
             {
                 this.GameOver = true;
                 SceneManager.LoadScene(3);
             }
-                
+
         }
     }
 }
