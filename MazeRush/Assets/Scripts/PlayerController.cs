@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MazeRush;
+using UnityEngine.SceneManagement;
 
 namespace MazeRush
 {
@@ -21,6 +22,7 @@ namespace MazeRush
         public AudioSource audiosource;
         public AudioSource audiosourcelight;
         public AudioSource audiosourceendgame;
+        private bool GameOver;
 
         // Start is called before the first frame update
         void Start()
@@ -32,6 +34,7 @@ namespace MazeRush
             healthbar.SetMaxHealth(maxHealth);
             this.Animator = this.gameObject.GetComponentInChildren<Animator>();
             Debug.Log(this.Animator);
+            this.GameOver=false;
         }
 
         // Update is called once per frame
@@ -141,10 +144,12 @@ namespace MazeRush
 
         private void playaudioendgame()
         {
-            if (this.Battery.GetCharge() <= 0.0f)
+            if (this.Battery.GetCharge() <= 0.0f && this.GameOver == false) 
             {
-                audiosourceendgame.Play();
+                this.GameOver = true;
+                SceneManager.LoadScene(3);
             }
+                
         }
     }
 }
