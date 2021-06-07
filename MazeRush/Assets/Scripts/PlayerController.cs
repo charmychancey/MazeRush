@@ -154,6 +154,10 @@ namespace MazeRush
                     Mathf.Pow(1 + this.BackgroundAudioGrowthRate,
                               this.StartingCharge - this.Battery.GetCharge());
             }
+            else if (this.Battery.GetCharge() > this.StartingCharge)
+            {
+                this.AudioSourceBackground.volume = this.StartingVolume;
+            }
         }
 
         private void PlayAudioFlashlight()
