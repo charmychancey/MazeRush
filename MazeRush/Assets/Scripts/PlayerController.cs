@@ -12,17 +12,22 @@ namespace MazeRush
         [SerializeField] GameObject Phone;
         [SerializeField] public Animator Animator;
         [SerializeField] public Text BatteryLevelDisplay;
+        [SerializeField] public int MaxHealth = 100;
+        [SerializeField] public AudioSource AudioSourceBackground;
+        [SerializeField] public float StartingVolume= 0.15f;
+        [SerializeField] public AudioSource AudioSourceFootsteps;
+        [SerializeField] public AudioSource AudioSourceLight;
+        [SerializeField] public AudioSource AudioSourceEndgame;
 
         private MovePlayer MovePlayer;
         private UseFlashlight Fire1;
         private IBattery Battery;
-        public int maxHealth = 100;
+        private float StartingCharge;
+        private float BackgroundAudioGrowthRate;
         public int currentHealth;
-        public HealthBar healthbar;
-        public AudioSource audiosource;
-        public AudioSource audiosourcelight;
-        public AudioSource audiosourceendgame;
+        [SerializeField] public HealthBar healthbar;
         private bool GameOver;
+        private Rigidbody PlayerBody;
 
         // Start is called before the first frame update
         void Start()
@@ -30,10 +35,18 @@ namespace MazeRush
             this.MovePlayer = ScriptableObject.CreateInstance<MovePlayer>();
             this.Fire1 = ScriptableObject.CreateInstance<UseFlashlight>();
             this.Battery = new DefaultBattery();
-            currentHealth=maxHealth;
-            healthbar.SetMaxHealth(maxHealth);
+            currentHealth = MaxHealth;
+            healthbar.SetMaxHealth(MaxHealth);
             this.Animator = this.gameObject.GetComponentInChildren<Animator>();
-            Debug.Log(this.Animator);
+            this.PlayerBody = this.gameObject.GetComponent<Rigidbody>();
+
+            // Sets init conditions for Audio logic variables.
+            this.AudioSourceBackground.volume = this.StartingVolume;
+            this.StartingCharge = this.Battery.GetCharge();
+            this.BackgroundAudioGrowthRate =
+                Mathf.Pow(1/this.StartingVolume,
+                          1/this.StartingCharge) -
+                1;
             this.GameOver=false;
         }
 
@@ -41,13 +54,12 @@ namespace MazeRush
         void Update()
         {
             AimAtMouse();
-            playaudio();
             DoUseFlashlight();
             DoDrainBattery();
-            this.BatteryLevelDisplay.text = Mathf.Ceil(this.Battery.GetCharge()).ToString("F0")+ "%";
+            this.BatteryLevelDisplay.text =
+                Mathf.Ceil(this.Battery.GetCharge()).ToString("F0")+ "%";
             TakeDamage();
-            playaudiofootsteps();
-            playaudioendgame();
+            PlayAudios();
         }
 
         void TakeDamage()
@@ -58,34 +70,6 @@ namespace MazeRush
         private void FixedUpdate() {
             DoPlayerMovement();
         }
-
-        private void playaudio()
-        {
-            if (Input.GetButtonDown("Fire1"))
-                {
-                    audiosourcelight.Play();
-
-                }
-            if (Input.GetButtonUp("Fire1"))
-            {
-                audiosourcelight.Stop();
-            }
-        }
-
-        private void playaudiofootsteps()
-        {
-            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
-                {
-                    audiosource.Play();
-
-                }
-            if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
-            {
-                audiosource.Stop();
-            }
-        }
-
-
 
         private void DoPlayerMovement()
         {
@@ -113,12 +97,19 @@ namespace MazeRush
             this.gameObject.transform.eulerAngles = new Vector3(0, 0, mouseAngle);
         }
 
+        // Charges the main battery when picking up a portable battery.
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.name == "Portable Battery")
             {
                 this.Battery.SetBattery(this.Battery.GetCharge() + 10f);
                 Destroy(collision.gameObject);
+            }
+
+            if (collision.gameObject.name == "Outlet")
+            {
+                Destroy(collision.gameObject);
+                SceneManager.LoadScene(4);
             }
         }
 
@@ -142,14 +133,69 @@ namespace MazeRush
             this.Battery.DrainBattery(this.Fire1.Flashlight.GetRange());
         }
 
-        private void playaudioendgame()
+        // Handles all the audio sources on the Player.
+        private void PlayAudios()
         {
-            if (this.Battery.GetCharge() <= 0.0f && this.GameOver == false) 
+            PlayAudioBackground();
+            PlayAudioFlashlight();
+            PlayAudioFootsteps();
+            PlayAudioEndgame();
+        }
+
+        // Audio Background volume is based on an exponential curve.
+        // Range(init volume, max volume) = starting charge of the battery.
+        // I.e. if the starting charge of the battery is 20%, then the
+        // background audio will reach max volume at (20% - 20% = )0% charge.
+        private void PlayAudioBackground()
+        {
+            if (this.Battery.GetCharge() <= this.StartingCharge &&
+                this.AudioSourceBackground.volume < 1)
             {
+                this.AudioSourceBackground.volume =
+                    this.StartingVolume *
+                    Mathf.Pow(1 + this.BackgroundAudioGrowthRate,
+                              this.StartingCharge - this.Battery.GetCharge());
+            }
+            else if (this.Battery.GetCharge() > this.StartingCharge)
+            {
+                this.AudioSourceBackground.volume = this.StartingVolume;
+            }
+        }
+
+        private void PlayAudioFlashlight()
+        {
+            if (Input.GetButtonDown("Fire1"))
+                {
+                    AudioSourceLight.Play();
+                }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                AudioSourceLight.Stop();
+            }
+        }
+
+        private void PlayAudioFootsteps()
+        {
+            if (this.PlayerBody.velocity.magnitude >= 2.5f &&
+                !this.AudioSourceFootsteps.isPlaying)
+                {
+                    this.AudioSourceFootsteps.Play();
+                }
+            else if (this.PlayerBody.velocity.magnitude < 2.5f)
+            {
+                this.AudioSourceFootsteps.Stop();
+            }
+        }
+
+        private void PlayAudioEndgame()
+        {
+            if (this.Battery.GetCharge() <= 0.0f && this.GameOver == false)
+            {
+                AudioSourceEndgame.Play();
                 this.GameOver = true;
                 SceneManager.LoadScene(3);
             }
-                
+
         }
     }
 }
