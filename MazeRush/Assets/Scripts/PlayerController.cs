@@ -27,6 +27,7 @@ namespace MazeRush
         public int currentHealth;
         [SerializeField] public HealthBar healthbar;
         private bool GameOver;
+        private Rigidbody PlayerBody;
 
         // Start is called before the first frame update
         void Start()
@@ -37,6 +38,7 @@ namespace MazeRush
             currentHealth = MaxHealth;
             healthbar.SetMaxHealth(MaxHealth);
             this.Animator = this.gameObject.GetComponentInChildren<Animator>();
+            this.PlayerBody = this.gameObject.GetComponent<Rigidbody>();
 
             // Sets init conditions for Audio logic variables.
             this.AudioSourceBackground.volume = this.StartingVolume;
@@ -174,13 +176,14 @@ namespace MazeRush
 
         private void PlayAudioFootsteps()
         {
-            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+            if (this.PlayerBody.velocity.magnitude >= 2.5f &&
+                !this.AudioSourceFootsteps.isPlaying)
                 {
-                    AudioSourceFootsteps.Play();
+                    this.AudioSourceFootsteps.Play();
                 }
-            if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
+            else if (this.PlayerBody.velocity.magnitude < 2.5f)
             {
-                AudioSourceFootsteps.Stop();
+                this.AudioSourceFootsteps.Stop();
             }
         }
 
