@@ -18,11 +18,8 @@ namespace MazeRush
         public int maxHealth = 100;
         public int currentHealth;
         public HealthBar healthbar;
-        public AudioSource audiosource;
+        //public AudioSource audiosource;
         public AudioSource audiosourcelight;
-        public AudioSource audiosourcegameover;
-
-
 
         // Start is called before the first frame update
         void Start()
@@ -43,10 +40,8 @@ namespace MazeRush
             playaudio();
             DoUseFlashlight();
             DoDrainBattery();
-            this.BatteryLevelDisplay.text = Mathf.Ceil(this.Battery.GetCharge()).ToString("F0")+ "%";
+            this.BatteryLevelDisplay.text = this.Battery.GetCharge().ToString("F0")+ "%";
             TakeDamage();
-            Playendgameaudio();
-            playaudiofootstep();
         }
 
         void TakeDamage()
@@ -68,18 +63,6 @@ namespace MazeRush
             if (Input.GetButtonUp("Fire1"))
             {
                 audiosourcelight.Stop();
-            }
-        }
-
-        private void playaudiofootstep()
-        {
-            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
-            {
-                audiosource.Play();
-            }
-            if (Input.GetButtonUp("Horizontal")|| Input.GetButtonUp("Vertical"))
-            {
-                audiosource.Stop();
             }
         }
 
@@ -136,15 +119,6 @@ namespace MazeRush
         private void DoDrainBattery()
         {
             this.Battery.DrainBattery(this.Fire1.Flashlight.GetRange());
-            
-        }
-
-        private void Playendgameaudio()
-        {
-            if (this.Battery.GetCharge() <= 0.0f)
-            {
-                audiosourcegameover.Play(); 
-            }
         }
     }
 }
