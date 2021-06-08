@@ -148,17 +148,14 @@ public class MazeGenerationController : MonoBehaviour
                                     Quaternion.identity).transform.localScale = new Vector3(this.HallWidth, this.HallHeight, 1);
                         break;
                     case (int) MazeCell.CellType.PlayerSpawn:
-                        // Teleport player here
-                        this.Player.transform.position = position;
                         this.Player.transform.position = playerPosition;
                         break;
                     case (int) MazeCell.CellType.BatterySpawn:
                         Instantiate(this.BatteryPrefab,
                                     position,
-                                    Quaternion.identity);
+                                    Quaternion.identity).name = "Portable Battery";
                         break;
                     case (int) MazeCell.CellType.Goal:
-                        // Instantiate goal here
                         break;
 
                 }
