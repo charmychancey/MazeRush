@@ -32,7 +32,7 @@
   <!-- ## General Information -->
 
   <!-- Begin with your company name, location, and miscellaneous information. -->
-  <title>CRAMD Presents: MazeRush</title>
+  <title>CRAMD</title>
   <based-in>Davis, CA</based-in>
   <founding-date>May 13, 2021</founding-date>
   <website>https://charmychancey.github.io/MazeRush/build/index.html</website>
@@ -139,7 +139,7 @@
     <download>https://example.com/video.mp4</download>
     ```
   -->
-  <trailers>
+  <!-- <trailers>
     <trailer>
       <name>Example from YouTube. Don't give a full link: the ID is enough</name>
       <youtube>er416Ad3R1g</youtube>
@@ -148,18 +148,18 @@
       <name>Example from both YouTube and Vimeo</name>
       <youtube>YH3c1QZzRK4</youtube>
       <vimeo>108650530</vimeo>
-    </trailer>
+    </trailer> -->
 
     <!--
       You can also add a video link without YouTube or Vimeo.
 
       In this case, only a sentence will be shown, along with a download link.
     -->
-    <trailer>
+    <!-- <trailer>
       <name>Interview with Damien Mayance and Matthieu Oger of Pixenest Studio</name>
       <download>https://github.com/pixelnest/presskit.html</download>
     </trailer>
-  </trailers>
+  </trailers> -->
 
   <!-- ## Awards, quotes & links -->
 
@@ -168,32 +168,27 @@
 
     But don't add too much here: this is your company page, not a product one.
   -->
-  <awards>
+  <!-- <awards>
     <award>
-      <description>An award</description>
-      <info>Name, location, 29 April, 1988</info>
+      <description></description>
+      <info></info>
     </award>
-    <award>
-      <description>A nomination</description>
-      <info>Name, location, 03 October, 1988</info>
-    </award>
-  </awards>
+  </awards> -->
 
   <!--
     Quotes are used to show the appreciation of your users.
 
     Show something important, something nice, or something funny, for example.
   -->
-  <quotes>
+  <!-- <quotes>
     <quote>
-      <description>There's not enough pizza in your life. It's never enough.</description>
-      <name>@mrhelmut</name>
-      <website>Tweet</website>
+      <description></description>
+      <name></name>
+      <website></website>
       <link>
-        https://twitter.com/mrhelmut/status/717276362814447616
       </link>
     </quote>
-  </quotes>
+  </quotes> -->
 
   <!--
     Need to link to a resource? A small product? An RSS feed?
@@ -204,14 +199,9 @@
   -->
   <additionals>
     <additional>
-      <title>Patricia Pizza Twitter</title>
-      <description>@patpiz at</description>
-      <link>https://twitter.com/patpiz</link>
-    </additional>
-    <additional>
-      <title>Bob Burger Twitter</title>
-      <description>@bobburg at</description>
-      <link>https://twitter.com/bobburg</link>
+      <title>MazeRush</title>
+      <description>product page at </description>
+      <link>https://charmychancey.github.io/MazeRush/build/product/index.html</link>
     </additional>
   </additionals>
 
@@ -228,30 +218,14 @@
 
     The `<website>` tag is optional.
   -->
-  <credits>
+  <!-- <credits>
     <credit>
-      <person>Patricia Pizza</person>
-      <role>Founder, Developer, Pizza Burger Studio</role>
-    </credit>
-    <credit>
-      <person>Bob Burger</person>
-      <role>Founder, Designer, Pizza Burger Studio</role>
-    </credit>
-    <credit>
-      <person>Jake Burgza</person>
-      <role>Artist, Collaborator</role>
+      <person></person>
+      <role></role>
       <website>
-        http://www.jakeburgza.com
       </website>
     </credit>
-    <credit>
-      <person>Sophia Pizer</person>
-      <role>Musician, Collaborator</role>
-      <website>
-        http://www.sophiapizer.com
-      </website>
-    </credit>
-  </credits>
+  </credits> -->
 
   <!--
     Add more contact information.

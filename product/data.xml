@@ -78,7 +78,7 @@
   <!-- Show the price of your product. Try to be exhaustive, it will be helpful for a reviewer. -->
   <prices>
     <price>
-      <currency>USD</currency>
+      <currency></currency>
       <value>FREE</value>
     </price>
   </prices>
@@ -220,8 +220,8 @@
   -->
   <awards>
     <award>
-      <description>Good Enough to Get an A</description>
-      <info>Probably good enough to get an A+ even (Self-presented), 09 June, 2021</info>
+      <description>A+ Game</description>
+      <info>(Self-presented), 09 June, 2021</info>
     </award>
     <award>
       <description>Most Relatable</description>
