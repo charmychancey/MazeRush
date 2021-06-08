@@ -93,7 +93,7 @@ public class MazeGenerationController : MonoBehaviour
         } while (curCell.Type != MazeCell.CellType.Default);
         curCell.Type = MazeCell.CellType.Goal;
         // Result is a matrix of MazeCells
-        // convert matrix of MazeCells into binary matrix
+        // convert matrix of MazeCells into numeric matrix
         MazeData = new int[2 * this.Rows + 1, 2 * this.Columns + 1];
         for (int row = 0; row < this.Rows; row++)
         {
@@ -166,7 +166,6 @@ public class MazeGenerationController : MonoBehaviour
                                     position,
                                     Quaternion.identity).name = "Outlet";
                         break;
-
                 }
             }
         }
