@@ -2310,10 +2310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8c25be75c4dc44d855d6925bc17bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MazeDimensions: {x: 19, y: 19}
-  HallWidth: 3
+  Rows: 5
+  Columns: 5
+  HallWidth: 2
   HallHeight: 2
-  WallPrefab: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+  WallPrefab: {fileID: 8593645843051534252, guid: be52a4eb07275ae4f94d62309505a910, type: 3}
 --- !u!1 &1983901193
 GameObject:
   m_ObjectHideFlags: 0

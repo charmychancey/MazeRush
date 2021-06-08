@@ -7,21 +7,33 @@ using UnityEngine;
 
 public class MazeGenerationController : MonoBehaviour
 {
-    public Vector2Int MazeDimensions = new Vector2Int(3, 3);
+    [SerializeField]
+    int Rows = 5;
+    [SerializeField]
+    int Columns = 5;
     // Start is called before the first frame update
-    public int HallWidth = 1;
-    public int HallHeight = 1;
-    public GameObject WallPrefab;
+    [SerializeField]
+    int HallWidth = 1;
+    [SerializeField]
+    int HallHeight = 1;
+    [SerializeField]
+    GameObject WallPrefab;
+    [SerializeField]
+    GameObject Player;
+    [SerializeField]
+    GameObject BatteryPrefab;
+    [SerializeField]
+    GameObject GoalPrefab;
     GameObject plane;
     int[,] MazeData;
 
     MazeCell[,] RecursiveBacktrackingMazeGeneration()
     {
         // Generate matrix of closed cells
-        var maze = new MazeCell[this.MazeDimensions.x, this.MazeDimensions.y];
-        for (int row = 0; row < this.MazeDimensions.x; row++)
+        var maze = new MazeCell[this.Rows, this.Columns];
+        for (int row = 0; row < this.Rows; row++)
         {
-            for (int col = 0; col < this.MazeDimensions.y; col++)
+            for (int col = 0; col < this.Columns; col++)
             {
                 maze[row, col] = new MazeCell(row, col);
             }
@@ -29,7 +41,7 @@ public class MazeGenerationController : MonoBehaviour
         // Stack of unfinished cells
         var stack = new List<MazeCell>(); 
         // Pick a random cell
-        stack.Add(maze[Random.Range(0, this.MazeDimensions.x), Random.Range(0, this.MazeDimensions.y)]);
+        stack.Add(maze[Random.Range(0, this.Rows), Random.Range(0, this.Columns)]);
         stack.Last().Visited = true;
         while(stack.Any())
         {
@@ -58,12 +70,28 @@ public class MazeGenerationController : MonoBehaviour
     {
         // Generate maze with algorithm
         var generatedMaze = this.RecursiveBacktrackingMazeGeneration();
+        // Generate game-specific values
+        // Pick a random cell to be the player's spawn
+        generatedMaze[Random.Range(0, this.Rows), Random.Range(0, this.Columns)].Type = MazeCell.CellType.PlayerSpawn;
+        // Each cell has a random chance to spawn a battery
+        MazeCell curCell;
+        for (int row = 0; row < this.Rows; row++)
+        {
+            for (int col = 0; col < this.Columns; col++)
+            {
+                curCell = generatedMaze[row, col];
+                if (curCell.Type != MazeCell.CellType.PlayerSpawn && Random.Range(0, this.Rows * this.Columns - 1) == 0)
+                {
+                    curCell.Type = MazeCell.CellType.BatterySpawn;
+                }
+            }
+        }
         // Result is a matrix of MazeCells
         // convert matrix of MazeCells into binary matrix
-        MazeData = new int[2 * generatedMaze.GetLength(0) + 1, 2 * generatedMaze.GetLength(1) + 1];
-        for (int row = 0; row < generatedMaze.GetLength(0); row++)
+        MazeData = new int[2 * this.Rows + 1, 2 * this.Columns + 1];
+        for (int row = 0; row < this.Rows; row++)
         {
-            for (int col = 0; col < generatedMaze.GetLength(1); col++)
+            for (int col = 0; col < this.Columns; col++)
             {
                 MazeData[1 + (2 * row), 1 + (2 * col)] = (int) generatedMaze[row, col].Type;
                 if (generatedMaze[row, col].Up)
@@ -109,19 +137,27 @@ public class MazeGenerationController : MonoBehaviour
                 var position = new Vector3(planeTopLeft.x + (this.HallWidth / 2) + col * this.HallWidth, 
                                             planeTopLeft.y - (this.HallHeight / 2) - row * this.HallHeight, 
                                             -1f);
-                if (MazeData[row, col] == 0)
+                switch (MazeData[row, col])
                 {
-                    Instantiate(this.WallPrefab, 
-                                position, 
-                                Quaternion.identity).transform.localScale = new Vector3(this.HallWidth, this.HallHeight, 1);
-                }
-            }
-        }
-        for (int row = 0; row < MazeData.GetLength(0); row++)
-        {
-            for (int col = 0; col < MazeData.GetLength(1); col++)
-            {
+                    case 0:
+                        Instantiate(this.WallPrefab, 
+                                    position, 
+                                    Quaternion.identity).transform.localScale = new Vector3(this.HallWidth, this.HallHeight, 1);
+                        break;
+                    case (int) MazeCell.CellType.PlayerSpawn:
+                        // Teleport player here
+                        this.Player.transform.position = position;
+                        break;
+                    case (int) MazeCell.CellType.BatterySpawn:
+                        Instantiate(this.BatteryPrefab,
+                                    position,
+                                    Quaternion.identity);
+                        break;
+                    case (int) MazeCell.CellType.Goal:
+                        // Instantiate goal here
+                        break;
 
+                }
             }
         }
     }
