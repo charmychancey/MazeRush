@@ -16,15 +16,20 @@ namespace MazeRush
 
         public Text ExpositionText;
         public ExpositionTrigger ExpositionTrigger;
+        public GameObject Canvas;
+        public GameObject NotifCanvas;
 
         void Start()
         {
+            Canvas.GetComponent<Canvas>().enabled = false;
             this.Sentences = new Queue<string>();
-            this.ExpositionTrigger.TriggerExposition();
+            // this.ExpositionTrigger.TriggerExposition();
         }
 
         public void StartExposition(Exposition exposition)
         {
+            NotifCanvas.GetComponent<Canvas>().enabled = false;
+            Canvas.GetComponent<Canvas>().enabled = true;
             this.Sentences.Clear();
 
             foreach (string sentence in exposition.Sentences)
