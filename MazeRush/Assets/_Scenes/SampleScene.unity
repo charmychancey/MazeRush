@@ -2305,16 +2305,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594197330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e8c25be75c4dc44d855d6925bc17bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Rows: 5
   Columns: 5
-  HallWidth: 2
+  HallWidth: 3
   HallHeight: 2
   WallPrefab: {fileID: 8593645843051534252, guid: be52a4eb07275ae4f94d62309505a910, type: 3}
+  Player: {fileID: 1070425959}
+  BatteryPrefab: {fileID: 5875009650065912193, guid: 34272b2f4a9febc45bc123d36ae17a1c, type: 3}
+  GoalPrefab: {fileID: 0}
 --- !u!1 &1983901193
 GameObject:
   m_ObjectHideFlags: 0
