@@ -104,44 +104,16 @@ public class MazeGenerationController : MonoBehaviour
 
         for (int row = 0; row < MazeData.GetLength(0); row++)
         {
-            if (row % 2 == 0)
+            for (int col = 0; col < MazeData.GetLength(1); col++)
             {
-                for (int col = 0; col < MazeData.GetLength(1); col++)
+                var position = new Vector3(planeTopLeft.x + (this.HallWidth / 2) + col * this.HallWidth, 
+                                            planeTopLeft.y - (this.HallHeight / 2) - row * this.HallHeight, 
+                                            -1f);
+                if (MazeData[row, col] == 0)
                 {
-                    Vector3 wallPosition;
-                    Vector3 wallScale;
-                    wallPosition = new Vector3(planeTopLeft.x + (this.HallWidth / 2) + col * this.HallWidth, 
-                                                planeTopLeft.y - (this.HallHeight / 2) - row * this.HallHeight, 
-                                                -1f);
-                    wallScale = new Vector3(this.HallWidth, this.HallHeight, 1);
-                    if (MazeData[row, col] == 0)
-                    {
-                        Instantiate(this.WallPrefab, 
-                                    wallPosition, 
-                                    Quaternion.identity).transform.localScale = wallScale;
-                    }
-                }
-            }
-            else
-            {
-                for (int col = 0; col < MazeData.GetLength(1); col++)
-                {
-                    Vector3 wallPosition;
-                    Vector3 wallScale;
-                    if (col % 2 == 0)
-                    {
-                        // vertical wall
-                        wallPosition = new Vector3(planeTopLeft.x + (this.HallWidth / 2) + col * this.HallWidth, 
-                                                   planeTopLeft.y - (this.HallHeight) - (this.HallHeight / 2) - (row - 1) * this.HallHeight, 
-                                                   -1f);
-                        wallScale = new Vector3(this.HallWidth, this.HallHeight, 1);
-                        if (MazeData[row, col] == 0)
-                        {
-                            Instantiate(this.WallPrefab, 
-                                        wallPosition, 
-                                        Quaternion.identity).transform.localScale = wallScale;
-                        }               
-                    }
+                    Instantiate(this.WallPrefab, 
+                                position, 
+                                Quaternion.identity).transform.localScale = new Vector3(this.HallWidth, this.HallHeight, 1);
                 }
             }
         }
