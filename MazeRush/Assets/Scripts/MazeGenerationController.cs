@@ -137,6 +137,9 @@ public class MazeGenerationController : MonoBehaviour
                 var position = new Vector3(planeTopLeft.x + (this.HallWidth / 2) + col * this.HallWidth, 
                                             planeTopLeft.y - (this.HallHeight / 2) - row * this.HallHeight, 
                                             -1f);
+                var playerPosition = new Vector3(planeTopLeft.x + (this.HallWidth / 2) + col * this.HallWidth, 
+                                            planeTopLeft.y - (this.HallHeight / 2) - row * this.HallHeight, 
+                                            -0.5f);
                 switch (MazeData[row, col])
                 {
                     case 0:
@@ -147,6 +150,7 @@ public class MazeGenerationController : MonoBehaviour
                     case (int) MazeCell.CellType.PlayerSpawn:
                         // Teleport player here
                         this.Player.transform.position = position;
+                        this.Player.transform.position = playerPosition;
                         break;
                     case (int) MazeCell.CellType.BatterySpawn:
                         Instantiate(this.BatteryPrefab,
