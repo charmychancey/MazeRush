@@ -86,6 +86,12 @@ public class MazeGenerationController : MonoBehaviour
                 }
             }
         }
+        // Pick random cell for the outlet placement
+        do
+        {
+            curCell = generatedMaze[Random.Range(0, this.Rows), Random.Range(0, this.Columns)];
+        } while (curCell.Type != MazeCell.CellType.Default);
+        curCell.Type = MazeCell.CellType.Goal;
         // Result is a matrix of MazeCells
         // convert matrix of MazeCells into binary matrix
         MazeData = new int[2 * this.Rows + 1, 2 * this.Columns + 1];
@@ -156,6 +162,9 @@ public class MazeGenerationController : MonoBehaviour
                                     Quaternion.identity).name = "Portable Battery";
                         break;
                     case (int) MazeCell.CellType.Goal:
+                        Instantiate(this.GoalPrefab,
+                                    position,
+                                    Quaternion.identity).name = "Outlet";
                         break;
 
                 }
