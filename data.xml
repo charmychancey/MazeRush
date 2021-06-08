@@ -32,20 +32,20 @@
   <!-- ## General Information -->
 
   <!-- Begin with your company name, location, and miscellaneous information. -->
-  <title>Pizza Burger Studio</title>
-  <based-in>Paris, France</based-in>
-  <founding-date>February 6, 2014</founding-date>
-  <website>https://github.com/pixelnest/presskit.html</website>
-  <phone>+42 (3) 42 42 42 42 42</phone>
+  <title>CRAMD Presents: MazeRush</title>
+  <based-in>Davis, CA</based-in>
+  <founding-date>May 13, 2021</founding-date>
+  <website>https://charmychancey.github.io/MazeRush/build/index.html</website>
+  <!-- <phone>+1 (xxx) xxx - xxxx</phone> -->
 
   <!--
     For the address, use as many lines as you want.
     Don't forget to specify the country.
   -->
   <address>
-    <line>42 street of Pixelnest</line>
-    <line>35000 Rennes</line>
-    <line>France</line>
+    <line>1 Shields Ave</line>
+    <line>Davis, CA 95616</line>
+    <line>United States</line>
   </address>
 
   <!--
@@ -55,35 +55,44 @@
     But Twitter and Facebook look like obvious choices. ;)
   -->
   <socials>
+    <p>GitHubs</p>
     <social>
-      <name>Twitter @pizzaburgerstudio</name>
-      <link>https://twitter.com/pizzaburgerstudio</link>
+      <name>Chance Lau</name>
+      <link>https://github.com/charmychancey</link>
     </social>
     <social>
-      <name>Facebook Page</name>
-      <link>https://facebook.com/pizzaburgerstudio</link>
+      <name>Risa Sathe</name>
+      <link>https://github.com/risathe</link>
     </social>
     <social>
-      <name>Skype</name>
-      <link>callto:pizzaburgerstudio</link>
+      <name>Andrew Lam</name>
+      <link>https://github.com/alam8</link>
+    </social>
+    <social>
+      <name>Mirthala Lopez</name>
+      <link>https://github.com/mirthala-lopez</link>
+    </social>
+    <social>
+      <name>Donald Lieu</name>
+      <link>https://github.com/de-Blaxe</link>
     </social>
   </socials>
 
   <!-- This field is the primary mail address you want to give to the press. -->
-  <press-contact>contact@pizzaburger.studio</press-contact>
+  <!-- <press-contact>contact@pizzaburger.studio</press-contact> -->
 
   <!--
     Use this tag to set your Google analytics tracking code.
 
     **It's, of course, completely optional.**
   -->
-  <analytics>UA-42424242-0</analytics>
+  <!-- <analytics>UA-42424242-0</analytics> -->
 
   <!-- ## Description & History -->
 
   <!-- The description is a simple short block to describe your company or studio. Be brief. -->
   <description>
-    This is a fake presskit for a fake company called Pizza Burger Studio.
+    One day 5 UC Davis students gathered to create a final project for ECS189L - Gamplay Design...
   </description>
 
   <!--
@@ -253,26 +262,24 @@
   -->
   <contacts>
     <contact>
-      <name>Inquiries</name>
-      <mail>contact@pizzaburger.studio</mail>
+      <name>Chance Lau</name>
+      <mail>adclau@ucdavis.edu</mail>
     </contact>
     <contact>
-      <name>Twitter</name>
-      <link>
-        https://twitter.com/pizzaburgerstudio
-      </link>
+      <name>Risa Sathe</name>
+      <mail>rusathe@ucdavis.edu</mail>
     </contact>
     <contact>
-      <name>Facebook</name>
-      <link>
-        https://facebook.com/pizzaburgerstudio
-      </link>
+      <name>Andrew Lam</name>
+      <mail>athlam@ucdavis.edu</mail>
     </contact>
     <contact>
-      <name>Web</name>
-      <link>
-        http://pizzaburger.studio
-      </link>
+      <name>Mirthala Lopez</name>
+      <mail>mazlopez@ucdavis.edu</mail>
+    </contact>
+    <contact>
+      <name>Donald Lieu</name>
+      <mail>dclieu@ucdavis.edu</mail>
     </contact>
   </contacts>
 
