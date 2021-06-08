@@ -209,9 +209,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7400000, guid: 089d37cf75e6c2740bd94df1481fb55d, type: 2}
+      - m_Target: {fileID: 620170227}
         m_TargetAssemblyTypeName: MazeRush.ExpositionTrigger, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: TriggerExposition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -806,6 +806,8 @@ MonoBehaviour:
   ExpositionAnimator: {fileID: 420177164}
   ExpositionText: {fileID: 116680538}
   ExpositionTrigger: {fileID: 620170227}
+  Canvas: {fileID: 1924232316}
+  NotifCanvas: {fileID: 1034004794}
 --- !u!4 &620170229
 Transform:
   m_ObjectHideFlags: 0
