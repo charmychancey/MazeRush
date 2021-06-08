@@ -12,12 +12,22 @@ public class MazeCell
     public bool Left { get; set; } = false;
     public bool Right { get; set; } = false;
     public bool Visited { get; set; } = false;
+    public CellType Type { get; set; } = CellType.Default;
 
     public MazeCell(int row, int col)
     {
         this.row = row;
         this.col = col;
     }
+
+    public enum CellType
+    {
+        Default = 1,
+        PlayerSpawn = 2,
+        BatterySpawn = 3,
+        Goal = 4
+    }
+
     enum Direction
     {
         Up,
