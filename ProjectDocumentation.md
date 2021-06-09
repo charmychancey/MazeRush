@@ -1,8 +1,8 @@
 # Game Basic Information #
 
 ## Summary ##
-
-**A paragraph-length pitch for your game.**
+A screen-addicted student is stuck in a maze (Shields Library) studying late at night, and has lost track of the time. the student's phone is about to run out of battery, and needs to find an outlet before the phone dies. 
+In this game, the player needs to go through a maze to find a power outlet to win. The player can increase the phone flashlight to help navigate through the maze, however the downside of increasing the flashlight is the battery level decreases at a much faster rate, providing lesser time for the player to find a power outlet to win. 
 
 ## Gameplay Explanation ##
 
