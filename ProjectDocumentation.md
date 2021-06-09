@@ -135,7 +135,7 @@ Overall, the sound style of this game is omnious.
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+To create our desired narrative, we incorporated multiple features. The battery draining system allows the player to feel an urgency to find the outlet before their phone dies. The availability of portable batteries give a sliver of hope that the phone won't die, while the ability to increase the range of vision with brightness (and the connected audio) remind the player that they have to escape the empty, dark and bleak hallways of Shields Library.
 
 ## Press Kit and Trailer
 
