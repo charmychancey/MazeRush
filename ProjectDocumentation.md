@@ -1,8 +1,7 @@
 # Game Basic Information #
 
 ## Summary ##
-A screen-addicted student is stuck in a maze (Shields Library) studying late at night, and has lost track of the time. The student's phone is about to run out of battery, and the student needs to find an outlet before their phone dies. 
-In this game, the player needs to navigate a maze to find a power outlet to win. The player can increase the phone's flashlight range to help scout the maze, however the downside of increasing the flashlight is that the battery level decreases at a much faster rate, providing less time for the player to find a power outlet to win. Manage the balanced between battery charge and scouting potential carefully to be successful. 
+You are a screen-addicted student stuck in a maze (Shields Library) studying late at night, and you’ve lost track of the time. Your phone is about to run out of battery, and you need to find an outlet before your phone dies. Eduroam is down again and you have no data, so you won't be able to contact the outside world for help. The library lights have gone out already, so the only source of light you have left at your disposal is your phone’s flashlight. You’ll need to manage your power very carefully if you want to escape with your life find that outlet. Your phone’s flashlight can be made brighter to increase your range of sight, at the expense of lowering your battery faster. If your phone battery dies before you find the outlet, you will be stuck in the library’s labyrinth without any source of light to navigate, thus losing the game.
 
 ## Gameplay Explanation ##
 
