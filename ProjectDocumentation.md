@@ -92,7 +92,7 @@ Since the Input role was minimal in our project, I spent a lot of time all aroun
 
 See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
-Supported input mediums:
+Supported input medium(s):
 - *Keyboard and mouse*
 
 ## Assistance/Odds and Ends
