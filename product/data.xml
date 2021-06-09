@@ -32,7 +32,7 @@
   <!-- Begin with your product name, website, and miscellaneous information. -->
   <title>MazeRush</title>
   <website>
-    https://charmychancey.github.io/MazeRush/build/product/index.html
+    https://bit.ly/2TW2NQw
   </website>
 
   <!-- You can also add an URL to a request page for this product. A button will be displayed on the page. -->
@@ -181,11 +181,7 @@
   <trailers>
     <trailer>
       <name>Release Trailer</name>
-      <youtube>EtXajayBLzw</youtube>
-    </trailer>
-    <trailer>
-      <name>Short gameplay preview: Burger vs Pizza</name>
-      <download>https://github.com/pixelnest/presskit.html</download>
+      <youtube>RDxi44YU0K0</youtube>
     </trailer>
   </trailers>
 
@@ -262,14 +258,44 @@
   -->
   <additionals>
     <additional>
-      <title>Original Soundtrack (OST)</title>
-      <description>Composed by an awesome musician. Listen for free, download for $3 at</description>
-      <link>http://zandernoriega.bandcamp.com/album/steredenn-original-soundtrack</link>
+      <title>Background Music</title>
+      <description>Background music from</description>
+      <link>https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021</link>
     </additional>
     <additional>
-      <title>Release announcement</title>
-      <description>Announcement are exciting, so we usually make blog posts or news about it on</description>
-      <link>http://pixelnest.io/journal/</link>
+      <title>Win Music</title>
+      <description>Win condition music from</description>
+      <link>https://www.youtube.com/watch?v=DQweLHdlVWo</link>
+    </additional>
+    <additional>
+      <title>Lose Music</title>
+      <description>Game over audio from</description>
+      <link>https://assetstore.unity.com/packages/audio/sound-fx/voices/a-voice-over-for-game-over-132171</link>
+    </additional>
+    <additional>
+      <title>Footstep Audio</title>
+      <description>Footstep audio from</description>
+      <link>https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879</link>
+    </additional>
+    <additional>
+      <title>Flashlight Audio</title>
+      <description>Flashlight audio from</description>
+      <link>https://assetstore.unity.com/packages/audio/sound-fx/lamp-wave-85404</link>
+    </additional>
+    <additional>
+      <title>Characters Assets</title>
+      <description>Characters from</description>
+      <link>https://assetstore.unity.com/packages/3d/characters/toony-tiny-people-demo-113188</link>
+    </additional>
+    <additional>
+      <title>Battery Assets</title>
+      <description>Battery from</description>
+      <link>https://assetstore.unity.com/packages/3d/props/tools/survival-kit-lite-92549#content</link>
+    </additional>
+    <additional>
+      <title>Phone Asset</title>
+      <description>Phone from</description>
+      <link>https://assetstore.unity.com/packages/3d/props/free-phone-181455</link>
     </additional>
   </additionals>
 
@@ -288,12 +314,12 @@
 
     The <link> tag is optional.
   -->
-  <abouts>
+  <!-- <abouts>
     <about>
       <title>CRAMD</title>
       <description>CRAMD is a small group of 5 students who banded together to create MazeRush for their ECS189L final project.</description>
     </about>
-  </abouts>
+  </abouts> -->
 
   <!-- ## Team & Contacts -->
 

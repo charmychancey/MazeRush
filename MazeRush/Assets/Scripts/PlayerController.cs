@@ -45,7 +45,7 @@ namespace MazeRush
             this.StartingCharge = this.Battery.GetCharge();
             this.BackgroundAudioGrowthRate =
                 Mathf.Pow(1/this.StartingVolume,
-                          1/this.StartingCharge) -
+                          1/(this.StartingCharge - 0.5f)) -
                 1;
             this.GameOver=false;
         }

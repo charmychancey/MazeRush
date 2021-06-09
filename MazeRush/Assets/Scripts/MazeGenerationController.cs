@@ -13,9 +13,9 @@ public class MazeGenerationController : MonoBehaviour
     int Columns = 5;
     // Start is called before the first frame update
     [SerializeField]
-    int HallWidth = 1;
+    float HallWidth = 1;
     [SerializeField]
-    int HallHeight = 1;
+    float HallHeight = 1;
     [SerializeField]
     GameObject WallPrefab;
     [SerializeField]
@@ -130,8 +130,8 @@ public class MazeGenerationController : MonoBehaviour
         int cellCols = (MazeData.GetLength(1) - 1) / 2;
         int wallRows = cellRows + 1;
         int wallCols = cellCols + 1;
-        int planeHeight = cellRows * this.HallHeight + wallRows * this.HallHeight;
-        int planeWidth = cellCols * this.HallWidth + wallCols * this.HallWidth;
+        float planeHeight = cellRows * this.HallHeight + wallRows * this.HallHeight;
+        float planeWidth = cellCols * this.HallWidth + wallCols * this.HallWidth;
         plane.transform.localScale = new Vector3(planeWidth / 10f, 1, planeHeight / 10f);
         Vector2 planeTopLeft = new Vector3(this.plane.transform.position.x - (planeWidth / 2),
                                            this.plane.transform.position.y + (planeHeight / 2));
