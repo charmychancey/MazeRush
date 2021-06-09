@@ -26,7 +26,22 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## User Interface
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
+(Main-Role: Risa Sathe)
+
+Implementation of the main menu, quit game, lose game, and win game scenes were designed and implemented to enhance user interface. This was done to provide players a better sense of visual representation of our game. 
+[main menu script](https://github.com/charmychancey/MazeRush/blob/main/MazeRush/Assets/Scripts/Mainmenu.cs),
+[losegame and win game script](https://github.com/charmychancey/MazeRush/blob/main/MazeRush/Assets/Scripts/LoseGame.cs),
+[scenes](https://github.com/charmychancey/MazeRush/tree/main/MazeRush/Assets/_Scenes).
+
+A health bar was also implemented to show the battery level of the phone, so that the player knows how much battery is left to find a power outlet as soon as possible before the player dies. This was inspired from the healthbar used in assignment 4. [health bar script](https://github.com/charmychancey/MazeRush/blob/main/MazeRush/Assets/HealthBar.cs)
+
+
+In Addition, Overall environment was also implemented, such as the flooring to make it look similar to the floor in the library.
+
+## Assistance/Odds and Ends
+(Continued Main-Role: Risa Sathe)
+
+* _Animation_: Assited in implementing player animation, and also assisted in player movement and motion.  
 
 ## Movement/Physics
 
@@ -59,6 +74,7 @@ See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
 *UI - Exposition Scene and System/Interface* - The lore/story for the game is presented as textbox messages on a phone. This was achieved using a phone gameobject overlayed with a UI for the textbox and animation. The exposition system uses a Controller that loads up Expositions(which contain strings) in a queue. Each Exposition represents a separate "message" on the phone in-game. When the player clicks the "next" button on the UI-layer, the current Exposition is dequeued, the in-game message updates, and the animation plays. I created custom animations in the Unity Animation involving changes in transform and alpha values and created transition states in the Unity Animator. This Exposition system was inspired by component design patterns as covered in Week 4 of ECS189L. [The ExpositionController script](https://github.com/charmychancey/MazeRush/blob/2898cc0d8c863a00daa57c56b7f925a392bf96ca/MazeRush/Assets/Scripts/ExpositionController.cs#L11).
 
+
 ## Game Logic
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
@@ -67,11 +83,24 @@ See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
 ## Audio
 
-**List your assets including their sources and licenses.**
+(Sub-Role: Risa Sathe)
 
-**Describe the implementation of your audio system.**
+Assets used were 
+[amb_deep_space3 and amb_run_end for background music](https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021),
+[footstep_Tile_walk_4  for player footsteps ](https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879 ),
+[sfx lamp wave for flashlight sound](https://assetstore.unity.com/packages/audio/sound-fx/lamp-wave-85404),
+[Game over sound](https://assetstore.unity.com/packages/audio/sound-fx/voices/a-voice-over-for-game-over-132171 ),
+[another game over sound](https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021),
+[and win game sound](https://youtu.be/DQweLHdlVWo).
 
-**Document the sound style.** 
+Audio was implemented to enhance the game feel to make it more exciting. Therefore a background sound was implemented to give a spooky feel, as the game is set in such a way that the player is all alone in shields library with no source of light around. To amplify that effect, a "horror" sound effect was used. Further, to improve sound effects, footstep sounds were implemented for the animated character. In addition, a sound effect was given for the flashlight to help the player understand that the light level is increasing and there is still hope to win. 
+[All audios](https://github.com/charmychancey/MazeRush/tree/main/MazeRush/Assets/Audio).
+
+A win game audio was provided which is an upbeat sound to celbrate the victory of the player. 
+A lose game audio that was implemented which provides a sense of gloominess and also a sense of terror to align with the sound style of this game. 
+
+Overall, the sound style of this game is omnious. 
+
 
 ## Gameplay Testing
 
