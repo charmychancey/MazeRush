@@ -40,7 +40,6 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Input
 
-**Describe the default input configuration.**
 (Main-Role: Chance Lau)
 *Command Pattern Input Design* - A command pattern was used to implement actions by the main player object. By implementing a IPlayerCommand interface, I created a MovePlayer command to handle input for player movement in a 2-D fashion, and a UseFlashlight command to handle input for using the flashlight in our game. By creating a command pattern-inspired design, we would easily be able to add more input-actions to our player in the future. This was especially desirable, because we initially had a lot of stretch goals for additional tools(such as a drill to break walls) that would be an additional command to link to input(unfortunately we did not have enough time to implement our stretch goal of the drill). This system was inspired by the command pattern as covered in Week 1 and 2 of the course. [The MovePlayer script that implements IPlayerCommand](https://github.com/charmychancey/MazeRush/blob/1088587fead009209b523d08964a05bb872d0666/MazeRush/Assets/Scripts/MovePlayer.cs#L7).
 
@@ -48,8 +47,8 @@ Since the Input role was minimal in our project, I spent a lot of time all aroun
 
 See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
-**Add an entry for each platform or input style your project supports.**
 *Keyboard*
+
 *Joystick/Controller*
 
 ## Assistance/Odds and Ends
@@ -93,7 +92,6 @@ See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
 ## Game Feel
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
 (Sub-Role: Chance Lau)
 
 *Dynamic Background Audio* - Initially, the background music was static in terms of volume. I changed it so that the player would feel a greater sense of urgency as they ran out of battery. After the update, the background music changes volume based on how much charge remains in the phone's battery. The volume distribution follows an exponential curve, so that as the battery depletes, the music gets louder faster. Minimum volume is marked at the initial battery charge when the player loads in, and maximum volume is marked when the player is nearly at 0% battery remaining. This design intersects with ECS189L Week 4's topic of game mechanics and the topic of game feel covered in ECS189L Week 7. [The dynamic mechanism/logic from the backgroud audio function](https://github.com/charmychancey/MazeRush/blob/2898cc0d8c863a00daa57c56b7f925a392bf96ca/MazeRush/Assets/Scripts/PlayerController.cs#L149).
