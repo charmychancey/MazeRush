@@ -20,6 +20,7 @@ Recommended Strategy:
 See "Assistance/Odds and Ends" sections for the following contributors:
 - Risa Sathe
 - Chance Lau
+- Mirthala Lopez
 
 # Main Roles #
 
@@ -137,6 +138,8 @@ Overall, the sound style of this game is omnious.
 **Summarize the key findings from your gameplay tests.**
 
 ## Narrative Design
+
+(Sub-Role: Mirthala Lopez)
 
 To create our desired narrative, we incorporated multiple features. The battery draining system allows the player to feel an urgency to find the outlet before their phone dies. The availability of portable batteries give a sliver of hope that the phone won't die, while the ability to increase the range of vision with brightness (and the connected audio) remind the player that they have to escape the empty, dark and bleak hallways of Shields Library.
 
