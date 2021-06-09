@@ -1715,9 +1715,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rows: 15
   Columns: 15
-  HallWidth: 2
-  HallHeight: 2
-  WallPrefab: {fileID: 1810756614285220, guid: ef0197a78830ab049b08a820ea60c3b5, type: 3}
+  HallWidth: 1.5
+  HallHeight: 1.5
+  WallPrefab: {fileID: 3378376157033600287, guid: 77679e90954e635479306a184d4cc9e3, type: 3}
   Player: {fileID: 1070425959}
   BatteryPrefab: {fileID: 5875009650065912193, guid: 34272b2f4a9febc45bc123d36ae17a1c, type: 3}
   GoalPrefab: {fileID: 2032363338525768537, guid: 3b4c71f46ed33e749b29b1dd44fa3dda, type: 3}
