@@ -64,7 +64,7 @@ namespace MazeRush
 
         void TakeDamage()
         {
-            healthbar.SetHealth((int)this.Battery.GetCharge());
+            healthbar.SetHealth((int)Mathf.Ceil(this.Battery.GetCharge()));
         }
 
         private void FixedUpdate() {
