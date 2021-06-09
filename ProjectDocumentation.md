@@ -30,7 +30,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Movement/Physics
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+(Main-Role: Donald Lieu)
+
+*Standard Physics Movement* - Our game uses the standard Unity physics model for movement. We apply forces to the player while input is being recieved and allow the physics system to control the release period of our movement curve. We shortened the "release" period of the movement curve to make the controls feel more crisp by adjusting the drag field of the rigidbody. At the same time, the "release" period is still long enough so that it feels like the character has some weight behind them without sliding around.
 
 ## Animation and Visuals
 
