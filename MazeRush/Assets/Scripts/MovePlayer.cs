@@ -6,7 +6,7 @@ namespace MazeRush
 {
     public class MovePlayer : ScriptableObject, IPlayerCommand
     {
-        private readonly float Speed = 5.0f;
+        private readonly float Force = 100;
         
 
         public void Execute(GameObject player)
@@ -16,11 +16,11 @@ namespace MazeRush
 
             if (rigidBody != null)
             {
-                rigidBody.velocity =
-                new Vector3(Input.GetAxis("Horizontal") * this.Speed,
-                            Input.GetAxis("Vertical") * this.Speed,
-                            0.0f);
-                            rigidBody.AddForce(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * this.Speed, ForceMode.Impulse);
+                // rigidBody.velocity =
+                // new Vector3(Input.GetAxis("Horizontal") * this.Speed,
+                //             Input.GetAxis("Vertical") * this.Speed,
+                //             0.0f);
+                rigidBody.AddForce(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * this.Force);
                             
             }
         }
