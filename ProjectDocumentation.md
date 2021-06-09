@@ -16,8 +16,11 @@ Recommended Strategy:
 
 
 **If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
-See "Assistance/Odds and Ends" heading.
--Chance Lau
+
+See "Assistance/Odds and Ends" sections for the following contributors:
+- Risa Sathe
+- Chance Lau
+- Mirthala Lopez
 
 # Main Roles #
 
@@ -152,7 +155,9 @@ https://docs.google.com/spreadsheets/d/1O8HVkgdB76xU3Y4JfA_ys92TtVN9dAo-P3gaGdQ1
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+(Sub-Role: Mirthala Lopez)
+
+To create our desired narrative, we incorporated multiple features. The battery draining system allows the player to feel an urgency to find the outlet before their phone dies. The availability of portable batteries give a sliver of hope that the phone won't die, while the ability to increase the range of vision with brightness (and the connected audio) remind the player that they have to escape the empty, dark and bleak hallways of Shields Library.
 
 ## Press Kit and Trailer
 
