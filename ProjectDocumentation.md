@@ -101,8 +101,6 @@ See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
 *Keyboard*
 
-*Joystick/Controller*
-
 ## Assistance/Odds and Ends
 
 (Continued Main-Role: Chance Lau)
