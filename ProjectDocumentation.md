@@ -58,7 +58,7 @@ In Addition, Overall environment was also implemented, such as the flooring to m
 
 (Main-Role: Donald Lieu)
 
-*Standard Physics Movement* - Our game uses the standard Unity physics model for movement. We apply forces to the player while input is being recieved and allow the physics system to control the release period of our movement curve. We shortened the "release" period of the movement curve to make the controls feel more crisp by adjusting the drag field of the rigidbody. At the same time, the "release" period is still long enough so that it feels like the character has some weight behind them without sliding around.
+*Standard Physics Movement* - Our game uses the standard Unity physics model for movement. We apply forces to the player while input is being recieved and allow the physics system to control the release period of our movement curve. We shortened the "release" period of the movement curve to make the controls feel more crisp by adjusting the drag field of the rigidbody. At the same time, the "release" period is still long enough so that it feels like the character has some weight behind them without sliding around. [movement script](https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/MovePlayer.cs)
 
 ## Animation and Visuals
 
@@ -134,8 +134,12 @@ Overall, the sound style of this game is omnious.
 ## Gameplay Testing
 
 **Add a link to the full results of your gameplay tests.**
+https://docs.google.com/spreadsheets/d/1O8HVkgdB76xU3Y4JfA_ys92TtVN9dAo-P3gaGdQ1VdA/edit?usp=sharing
 
 **Summarize the key findings from your gameplay tests.**
+- MVP features are fully functional
+- Windows and Mac compatible
+- The experimental number of batteries spawned per maze is 0.9 in 10 trials, close to the expected number of 1.
 
 ## Narrative Design
 
