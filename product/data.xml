@@ -288,12 +288,12 @@
 
     The <link> tag is optional.
   -->
-  <abouts>
+  <!-- <abouts>
     <about>
       <title>CRAMD</title>
       <description>CRAMD is a small group of 5 students who banded together to create MazeRush for their ECS189L final project.</description>
     </about>
-  </abouts>
+  </abouts> -->
 
   <!-- ## Team & Contacts -->
 
