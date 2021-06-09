@@ -53,7 +53,17 @@ In addition, the overall environment was also implemented, such as the flooring 
 
 ## Movement/Physics
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+(Main-Role: Donald Lieu)
+
+*Standard Physics Movement* - Our game uses the standard Unity physics model for movement. We apply forces to the player while input is being recieved and allow the physics system to control the release period of our movement curve. We shortened the "release" period of the movement curve to make the controls feel more crisp by adjusting the drag field of the rigidbody. At the same time, the "release" period is still long enough so that it feels like the character has some weight behind them without sliding around. [movement script](https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/MovePlayer.cs)
+
+## Assistance/Odds and Ends
+(Continued Main-Role: Donald Lieu)
+
+*Cursor-tracking* - I wrote the [code](https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/LightController.cs#L51-L56) that returns the cursor's angle relative to the player. This is used for the rotation of the flashlight and player model.
+*Flashlight rotation* - The flashlight source needs to be rotated to follow the cursor for responsive controls. (https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/LightController.cs#L59)
+*Maze-generation* - The entire premise of the game requires that the player be stuck in a confusing environment. What better environment to be confused in than a maze? Our controller uses random depth first traversal or "recursive backtracking" as the generation algorithm. Once the maze data is generated, we algorithmically shape the map and spawn the wall prefabs in to create the maze. The walls could be any size, so we must scale them correctly by considering their bounds in the Renderer or Collider component. Additionally, some prefabs have their pivot located away from the center. The controller considers this and wraps the prefab in an empty parent object so that the scaling can be done according to their center. This system is based on the procedural content generation portion of the course. [source](https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/MazeGenerationController.cs)
+*Double-sided Bookshelf* - The bookshelf prefab we used was one-sided so I fixed this for a more consistent feel across the map. This was fixed by creating a new parent object and dublicating the prefab. Surprisingly, this created a bug in our maze generation controller because the parent object doesn't contain a Collider component. As a hotfix, we simply look for any collider in the children and use those values for the scaling.
 
 ## Animation and Visuals
 
@@ -135,8 +145,12 @@ Overall, the sound style of this game is omnious.
 ## Gameplay Testing
 
 **Add a link to the full results of your gameplay tests.**
+https://docs.google.com/spreadsheets/d/1O8HVkgdB76xU3Y4JfA_ys92TtVN9dAo-P3gaGdQ1VdA/edit?usp=sharing
 
 **Summarize the key findings from your gameplay tests.**
+- MVP features are fully functional
+- Windows and Mac compatible
+- The experimental number of batteries spawned per maze is 0.9 in 10 trials, close to the expected number of 1.
 
 ## Narrative Design
 
