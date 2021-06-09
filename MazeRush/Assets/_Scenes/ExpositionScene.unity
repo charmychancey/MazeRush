@@ -1184,13 +1184,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your phone is at 20%. Connect to power soon.
+  m_Text: Connect to power soon.
 --- !u!222 &1349898223
 CanvasRenderer:
   m_ObjectHideFlags: 0
