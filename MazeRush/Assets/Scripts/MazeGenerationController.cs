@@ -149,9 +149,15 @@ public class MazeGenerationController : MonoBehaviour
                 switch (MazeData[row, col])
                 {
                     case 0:
-                        Instantiate(this.WallPrefab, 
-                                    position, 
-                                    Quaternion.identity).transform.localScale = new Vector3(this.HallWidth, this.HallHeight, 1);
+                        var wallWrapper = new GameObject("WallWrapper");
+                        var wall = Instantiate(this.WallPrefab);
+                        wall.transform.position = -wall.GetComponent<Renderer>().bounds.center;
+                        wall.transform.SetParent(wallWrapper.transform);
+                        wallWrapper.transform.position = position;
+                        wallWrapper.transform.rotation = this.plane.transform.rotation;
+                        var realScale = wall.GetComponent<Collider>().bounds.size;
+                        wallWrapper.transform.localScale = new Vector3(this.HallWidth / realScale.x, 1 / realScale.y, this.HallHeight / realScale.z);
+                        wallWrapper.transform.SetParent(this.plane.transform);
                         break;
                     case (int) MazeCell.CellType.PlayerSpawn:
                         this.Player.transform.position = playerPosition;
