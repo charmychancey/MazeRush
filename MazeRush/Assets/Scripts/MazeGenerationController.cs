@@ -151,11 +151,11 @@ public class MazeGenerationController : MonoBehaviour
                     case 0:
                         var wallWrapper = new GameObject("WallWrapper");
                         var wall = Instantiate(this.WallPrefab);
-                        wall.transform.position = -wall.GetComponent<Renderer>().bounds.center;
+                        wall.transform.position = -wall.GetComponentInChildren<Renderer>().bounds.center;
                         wall.transform.SetParent(wallWrapper.transform);
                         wallWrapper.transform.position = position;
                         wallWrapper.transform.rotation = this.plane.transform.rotation;
-                        var realScale = wall.GetComponent<Collider>().bounds.size;
+                        var realScale = wall.GetComponentInChildren<Collider>().bounds.size;
                         wallWrapper.transform.localScale = new Vector3(this.HallWidth / realScale.x, 1 / realScale.y, this.HallHeight / realScale.z);
                         wallWrapper.transform.SetParent(this.plane.transform);
                         break;

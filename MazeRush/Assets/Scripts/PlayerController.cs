@@ -102,7 +102,7 @@ namespace MazeRush
         {
             if (collision.gameObject.name == "Portable Battery")
             {
-                this.Battery.SetBattery(this.Battery.GetCharge() + 10f);
+                this.Battery.SetBattery(this.Battery.GetCharge() + 2.5f);
                 Destroy(collision.gameObject);
             }
 
