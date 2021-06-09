@@ -7,7 +7,7 @@ You are a screen-addicted student stuck in a maze (Shields Library) studying lat
 
 Controls:
 - WASD or joystick/thumbstick for movement
-- "Fire1"(eg left click mouse button) for flashlight active mode
+- "Fire1" (e.g. left click mouse button) for flashlight active mode
 
 Recommended Strategy:
 - The player will start out at a random location in the maze. The player's first priority should be to find the location of the outlet. Use the flashlight's active mode to expand range-of-sight and locate the outlet. 
@@ -16,11 +16,8 @@ Recommended Strategy:
 
 
 **If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
-
-See "Assistance/Odds and Ends" sections for the following contributors:
-- Risa Sathe
-- Chance Lau
-- Mirthala Lopez
+See "Assistance/Odds and Ends" heading.
+-Chance Lau
 
 # Main Roles #
 
@@ -46,19 +43,17 @@ Implementation of the main menu, quit game, lose game, and win game scenes were 
 
 A health bar was also implemented to show the battery level of the phone, so that the player knows how much battery is left to find a power outlet as soon as possible before the player dies. This was inspired from the healthbar used in assignment 4. [health bar script](https://github.com/charmychancey/MazeRush/blob/main/MazeRush/Assets/HealthBar.cs)
 
-
-In Addition, Overall environment was also implemented, such as the flooring to make it look similar to the floor in the library.
+In addition, the overall environment was also implemented, such as the flooring to make it look similar to the floor in the library.
 
 ## Assistance/Odds and Ends
+
 (Continued Main-Role: Risa Sathe)
 
 * _Animation_: Assited in implementing player animation, and also assisted in player movement and motion.  
 
 ## Movement/Physics
 
-(Main-Role: Donald Lieu)
-
-*Standard Physics Movement* - Our game uses the standard Unity physics model for movement. We apply forces to the player while input is being recieved and allow the physics system to control the release period of our movement curve. We shortened the "release" period of the movement curve to make the controls feel more crisp by adjusting the drag field of the rigidbody. At the same time, the "release" period is still long enough so that it feels like the character has some weight behind them without sliding around.
+**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
 ## Animation and Visuals
 
@@ -79,6 +74,7 @@ In Addition, Overall environment was also implemented, such as the flooring to m
 *Environment Design* - After implementing the maze walls, we decided against using the wall prefabs within the 'Snaps Office Prototype' asset (All the walls would appear vertical). We settled for using materials from the same asset to let the walls look blank and dreary. The portable battery items that can be found across the map use the battery prefab from the 'Survival Kit' asset. In addition, our outlet prefab uses material from the same asset. 
 
 ## Assistance/Odds and Ends
+
 (Continued Main-Role: Mirthala Lopez)
 
 *UI - Exposition Scene* - I added an extra notification box to appear with a 'Battery Low!' message to give the player a small sense of panic. I implemented the notification so that when the box was clicked, it would disable the notification box and enable the exposition boxes, leading to the overall Exposition scene. 
@@ -93,20 +89,26 @@ Since the Input role was minimal in our project, I spent a lot of time all aroun
 
 See the "Assistance/Odds and Ends" heading for more details on my contributions.
 
-Supported input medium(s):
-- *Keyboard and mouse*
+*Keyboard*
+
+*Joystick/Controller*
 
 ## Assistance/Odds and Ends
+
 (Continued Main-Role: Chance Lau)
 
-*Game Logic - Dynamic Flashlight* - An aesthetic as well as technical centerpiece to the game, the flashlight is a spot light attached to the player object that grows in range when the appropriate input is held down. Calls to player controller script is made each frame to modify the range of the flashlight. The unity editor was also used to implement logic such as light passing through objects, shadow-effects, etc. The flashlight is essential, because it is the player's primary source for scouting information about the layout of the maze. It is part of the main gameplay loop. This system is based on ECS189L Week 4's topic of game mechanics. [The UseFlashlight script](https://github.com/charmychancey/MazeRush/blob/2898cc0d8c863a00daa57c56b7f925a392bf96ca/MazeRush/Assets/Scripts/UseFlashlight.cs#L8).
+*Game Logic - Dynamic Flashlight* - An aesthetic as well as technical centerpiece to the game, the flashlight is a spot light attached to the player object that grows in range when the appropriate input is held down. Calls to player controller script is made each frame to modify the range of the flashlight. The flashlight is essential, because it is the player's primary source of scouting information about the layout of the maze. It is part of the main gameplay loop. This system is based on ECS189L Week 4's topic of game mechanics. [The UseFlashlight script](https://github.com/charmychancey/MazeRush/blob/2898cc0d8c863a00daa57c56b7f925a392bf96ca/MazeRush/Assets/Scripts/UseFlashlight.cs#L8).
 
 *UI - Exposition Scene and System/Interface* - The lore/story for the game is presented as textbox messages on a phone. This was achieved using a phone gameobject overlayed with a UI for the textbox and animation. The exposition system uses a Controller that loads up Expositions(which contain strings) in a queue. Each Exposition represents a separate "message" on the phone in-game. When the player clicks the "next" button on the UI-layer, the current Exposition is dequeued, the in-game message updates, and the animation plays. I created custom animations in the Unity Animation involving changes in transform and alpha values and created transition states in the Unity Animator. This Exposition system was inspired by component design patterns as covered in Week 4 of ECS189L. [The ExpositionController script](https://github.com/charmychancey/MazeRush/blob/2898cc0d8c863a00daa57c56b7f925a392bf96ca/MazeRush/Assets/Scripts/ExpositionController.cs#L11).
 
 
 ## Game Logic
 
-**Document what game states and game data you managed and what design patterns you used to complete your task.**
+(Main-Role: Andrew Lam)
+
+*Battery Management System and Flashlight* - The battery component is attached to the PlayerController and is responsible for the main gameplay loop, as its level will need to be managed by the player or else they will lose the game once it runs out. It has a passive linear drain based on what the DrainRate value has been set to, and to add a tradeoff for turning up the brightness of the flashlight, the DrainRate is increased by a factor of the current flashlight's level. The PlayerController calls the methods to manage the battery every frame within its Update() function, which other components can also use to update their states (e.g. the battery display UI). There is also logic for portable battery powerups to increase the current level of the battery upon colliding with them. [DefaultBattery Script](https://github.com/charmychancey/MazeRush/blob/main/MazeRush/Assets/Scripts/DefaultBattery.cs)
+
+*Win/Lose Condition Logic* - The PlayerController also manages the win/lose conditions of the game, as a check for running out of battery will cause the game to transition to the "You Lose" scene, and the player colliding with the "Outlet" object will transition to the "You Win" screen. The check for whether the battery has run out is also called within the Update() function so that the game state is updated immediately. [Win Check](https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/PlayerController.cs#L101) and [Lose Check](https://github.com/charmychancey/MazeRush/blob/1f19f84134bd99e4587d8c9f43490f60e696a70a/MazeRush/Assets/Scripts/PlayerController.cs#L190)
 
 # Sub-Roles
 
@@ -128,8 +130,7 @@ Audio was implemented to enhance the game feel to make it more exciting. Therefo
 A win game audio was provided which is an upbeat sound to celbrate the victory of the player. 
 A lose game audio that was implemented which provides a sense of gloominess and also a sense of terror to align with the sound style of this game. 
 
-Overall, the sound style of this game is omnious. 
-
+Overall, the sound style of this game is omnious.
 
 ## Gameplay Testing
 
@@ -139,17 +140,16 @@ Overall, the sound style of this game is omnious.
 
 ## Narrative Design
 
-(Sub-Role: Mirthala Lopez)
-
-To create our desired narrative, we incorporated multiple features. The battery draining system allows the player to feel an urgency to find the outlet before their phone dies. The availability of portable batteries give a sliver of hope that the phone won't die, while the ability to increase the range of vision with brightness (and the connected audio) remind the player that they have to escape the empty, dark and bleak hallways of Shields Library.
+**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+(Sub-role: Andrew Lam)
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+[Press kit](https://charmychancey.github.io/MazeRush/build/product/index.html)
+[Trailer](https://www.youtube.com/watch?v=RDxi44YU0K0)
 
-
+We wanted to showcase the narrative behind our game to make it more engaging to players while also making sure that it tied directly to the actual gameplay. In addition, we wanted to highlight the most significant features that made our game interesting, such as the relationship between the flashlight to navigate the maze and your battery level, as well as the random maze generation for each playthrough.
 
 ## Game Feel
 
