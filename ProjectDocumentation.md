@@ -6,8 +6,9 @@ You are a screen-addicted student stuck in a maze (Shields Library) studying lat
 ## Gameplay Explanation ##
 
 Controls:
-- WASD or joystick/thumbstick for movement
+- WASD for player movement
 - "Fire1" (e.g. left click mouse button) for flashlight active mode
+- Aim flashlight with mouse
 
 Recommended Strategy:
 - The player will start out at a random location in the maze. The player's first priority should be to find the location of the outlet. Use the flashlight's active mode to expand range-of-sight and locate the outlet. 
@@ -97,7 +98,7 @@ In addition, the overall environment was also implemented, such as the flooring 
 
 Since the Input role was minimal in our project, I spent a lot of time all around in the other parts/roles in the project.
 
-See the "Assistance/Odds and Ends" heading for more details on my contributions.
+See the "Assistance/Odds and Ends" heading below for more details on my contributions.
 
 Supported input medium(s):
 - *Keyboard and mouse*
