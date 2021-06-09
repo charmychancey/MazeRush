@@ -57,9 +57,26 @@ In Addition, Overall environment was also implemented, such as the flooring to m
 
 ## Animation and Visuals
 
+(Main-Role: Mirthala Lopez)
+
 **List your assets including their sources and licenses.**
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+1. [Toony Tiny People Demo](https://assetstore.unity.com/packages/3d/characters/toony-tiny-people-demo-113188) - [License](https://unity3d.com/legal/as_terms?_ga=2.170576864.196383405.1623199583-255437453.1617059752)
+
+2. [Snaps Office Prototypes](https://assetstore.unity.com/packages/3d/environments/snaps-prototype-office-137490) - [License](https://unity3d.com/legal/as_terms?_ga=2.170576864.196383405.1623199583-255437453.1617059752)
+
+3. [Survival Kit Lite](https://assetstore.unity.com/packages/3d/props/tools/survival-kit-lite-92549#content) - [License](https://unity3d.com/legal/as_terms?_ga=2.170576864.196383405.1623199583-255437453.1617059752)
+
+4. [Free Phone](https://assetstore.unity.com/packages/3d/props/free-phone-181455) - [License](https://unity3d.com/legal/as_terms?_ga=2.170576864.196383405.1623199583-255437453.1617059752)
+
+*Character Design* - The 'Toony Tiny People' asset from the Unity Store included characters from a zombie-related game. The somewhat dirty and disheveled appearance of the character adds to the ominious feel of our game. Additionally, the character prefab had a hand container in which we were able to use the 'Free Phone' asset to make it look like the character was holding up a phone with the flashlight pointing outwards.
+
+*Environment Design* - After implementing the maze walls, we decided against using the wall prefabs within the 'Snaps Office Prototype' asset (All the walls would appear vertical). We settled for using materials from the same asset to let the walls look blank and dreary. The portable battery items that can be found across the map use the battery prefab from the 'Survival Kit' asset. In addition, our outlet prefab uses material from the same asset. 
+
+## Assistance/Odds and Ends
+(Continued Main-Role: Mirthala Lopez)
+
+*UI - Exposition Scene* - I added an extra notification box to appear with a 'Battery Low!' message to give the player a small sense of panic. I implemented the notification so that when the box was clicked, it would disable the notification box and enable the exposition boxes, leading to the overall Exposition scene. 
 
 ## Input
 
