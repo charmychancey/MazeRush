@@ -1,15 +1,24 @@
 # Game Basic Information #
 
 ## Summary ##
-A screen-addicted student is stuck in a maze (Shields Library) studying late at night, and has lost track of the time. the student's phone is about to run out of battery, and needs to find an outlet before the phone dies. 
-In this game, the player needs to go through a maze to find a power outlet to win. The player can increase the phone flashlight to help navigate through the maze, however the downside of increasing the flashlight is the battery level decreases at a much faster rate, providing lesser time for the player to find a power outlet to win. 
+A screen-addicted student is stuck in a maze (Shields Library) studying late at night, and has lost track of the time. The student's phone is about to run out of battery, and the student needs to find an outlet before their phone dies. 
+In this game, the player needs to navigate a maze to find a power outlet to win. The player can increase the phone's flashlight range to help scout the maze, however the downside of increasing the flashlight is that the battery level decreases at a much faster rate, providing less time for the player to find a power outlet to win. Manage the balanced between battery charge and scouting potential carefully to be successful. 
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
+Controls:
+- WASD or joystick/thumbstick for movement
+- "Fire1"(eg left click mouse button) for flashlight active mode
+
+Recommended Strategy:
+- The player will start out at a random location in the maze. The player's first priority should be to find the location of the outlet. Use the flashlight's active mode to expand range-of-sight and locate the outlet. 
+- After finding the outlet, use the flashlight to scout out the path leading to the outlet. Memorize the path, and turn on off the flashlight's active mode to conserve battery.
+- Follow the memorized path, and repeat the previous steps as necessary.
 
 
 **If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+See "Assistance/Odds and Ends" heading.
+-Chance Lau
 
 # Main Roles #
 
