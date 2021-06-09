@@ -60,6 +60,11 @@ namespace MazeRush
                 Mathf.Ceil(this.Battery.GetCharge()).ToString("F0")+ "%";
             TakeDamage();
             PlayAudios();
+
+            if (Input.GetKey("escape"))
+            {
+                SceneManager.LoadScene(0);
+            }
         }
 
         void TakeDamage()
