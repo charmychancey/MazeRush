@@ -22,6 +22,6 @@ public class DefaultBattery : ScriptableObject, IBattery
     public void DrainBattery(float LightLevel)
     {
         this.Charge -= LightLevel * this.DrainRate;
-        Debug.Log(this.Charge);
+        // Debug.Log(this.Charge);
     }
 }
